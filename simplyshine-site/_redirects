@@ -1,0 +1,6 @@
+# Clean URL redirects
+/tjanster      /tjanster.html      200
+/sa-funkar-det /sa-funkar-det.html 200
+/om-oss        /om-oss.html        200
+/boka          /boka.html          200
+/kontakt       /kontakt.html       200
