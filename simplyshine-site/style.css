@@ -662,6 +662,28 @@ img {
   margin-bottom: 24px;
 }
 
+.package-price-original {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.package-discount-badge {
+  display: inline-block;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+
 .package-list {
   flex: 1;
   margin-bottom: 24px;
