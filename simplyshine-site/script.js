@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initScrollAnimations();
   initForms();
+  initAddonTooltips();
 });
 
 /* ─── Header scroll effect ─── */
@@ -112,5 +113,51 @@ function initForms() {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     });
+  });
+}
+
+/* ─── Addon tooltips ─── */
+function initAddonTooltips() {
+  // Create overlay element for closing tooltips
+  const overlay = document.createElement('div');
+  overlay.className = 'addon-overlay';
+  document.body.appendChild(overlay);
+
+  function closeAllTooltips() {
+    document.querySelectorAll('.addon-tooltip.active').forEach(t => t.classList.remove('active'));
+    overlay.classList.remove('active');
+  }
+
+  // Toggle tooltip on info button click
+  document.querySelectorAll('.addon-info-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const chip = btn.closest('.addon-chip');
+      const tooltip = chip.querySelector('.addon-tooltip');
+      const isOpen = tooltip.classList.contains('active');
+
+      closeAllTooltips();
+
+      if (!isOpen) {
+        tooltip.classList.add('active');
+        overlay.classList.add('active');
+      }
+    });
+  });
+
+  // Close on X button
+  document.querySelectorAll('.addon-tooltip-close').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAllTooltips();
+    });
+  });
+
+  // Close on overlay click
+  overlay.addEventListener('click', closeAllTooltips);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllTooltips();
   });
 }
