@@ -1399,6 +1399,81 @@ img {
   display: block;
 }
 
+/* ═══════════════════════════════════════════
+   Bokningsformulär – Addon Checkboxes
+═══════════════════════════════════════════ */
+
+.addon-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addon-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gray-border);
+  background: var(--white);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.addon-checkbox-item:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.addon-checkbox-item input[type="checkbox"] {
+  display: none;
+}
+
+.addon-checkbox-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.addon-checkbox-item input[type="checkbox"]:checked ~ .addon-checkbox-mark {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.addon-checkbox-item input[type="checkbox"]:checked ~ .addon-checkbox-mark::after {
+  content: '✓';
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.addon-checkbox-item input[type="checkbox"]:checked ~ .addon-checkbox-text {
+  color: var(--dark);
+}
+
+.addon-checkbox-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.addon-checkbox-price {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--primary-dark);
+}
+
 @media (max-width: 768px) {
   .nav { display: none; }
   .hamburger { display: block; }
