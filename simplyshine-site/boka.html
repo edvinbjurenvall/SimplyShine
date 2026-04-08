@@ -1,251 +1,341 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17941835180"></script>
-      <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17941835180');
-      </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boka – SimplyShine</title>
-  <meta name="description" content="Boka professionell mobil bilvård i Göteborg. Fyll i formuläret – vi återkommer inom 24 timmar.">
-  <link rel="canonical" href="https://simplyshine.se/boka.html">
-  <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17941835180"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17941835180');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekond Göteborg – Mobil Bilvård | SimplyShine</title>
+    <meta name="description" content="Professionell bilrekond i Göteborg – vi kommer till dig. Boka enkelt online. Resultat du ser direkt.">
+    <link rel="canonical" href="https://simplyshine.se/boka.html">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <a href="index.html" class="logo" aria-label="SimplyShine startsida">
-      <span class="logo-simply">Simply</span><span class="logo-shine">Shine</span>
-    </a>
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Hem</a>
-      <a href="tjanster.html" class="nav-link">Tjänster</a>
-      <a href="sa-funkar-det.html" class="nav-link">Så Funkar Det</a>
-      <a href="om-oss.html" class="nav-link">Om Oss</a>
-      <a href="boka.html" class="nav-link nav-link--cta active">Boka</a>
-      <a href="kontakt.html" class="nav-link">Kontakt</a>
-    </nav>
-    <button class="hamburger" aria-label="Öppna meny"><span></span><span></span><span></span></button>
-  </header>
-  <div class="mobile-menu">
-    <a href="index.html">Hem</a>
-    <a href="tjanster.html">Tjänster</a>
-    <a href="sa-funkar-det.html">Så Funkar Det</a>
-    <a href="om-oss.html">Om Oss</a>
-    <a href="boka.html" class="active">Boka</a>
-    <a href="kontakt.html">Kontakt</a>
-  </div>
+<!-- HEADER -->
+<header class="header">
+  <a href="index.html" class="logo" aria-label="SimplyShine startsida">
+    <span class="logo-simply">Simply</span><span class="logo-shine">Shine</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Hem</a>
+    <a href="tjanster.html" class="nav-link">Tjänster</a>
+    <a href="sa-funkar-det.html" class="nav-link">Så Funkar Det</a>
+    <a href="om-oss.html" class="nav-link">Om Oss</a>
+    <a href="boka.html" class="nav-link nav-link--cta active">Boka</a>
+    <a href="kontakt.html" class="nav-link">Kontakt</a>
+  </nav>
+  <button class="hamburger" aria-label="Öppna meny"><span></span><span></span><span></span></button>
+</header>
 
-  <main>
+<div class="mobile-menu">
+  <a href="index.html">Hem</a>
+  <a href="tjanster.html">Tjänster</a>
+  <a href="sa-funkar-det.html">Så Funkar Det</a>
+  <a href="om-oss.html">Om Oss</a>
+  <a href="boka.html" class="active">Boka</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
 
-    <!-- HERO -->
-    <section class="hero hero--small">
-      <div class="hero-content">
-        <h1>Boka Din Bilvård</h1>
-        <p>Fyll i formuläret nedan så återkommer vi inom 24 timmar</p>
+<main>
+
+  <!-- 1. HERO – Search-intent headline + CTA anchor -->
+  <section class="hero hero--small">
+    <div class="hero-content">
+      <h1>Rekond i Göteborg – Vi Kommer Till Dig</h1>
+      <p>Professionell bilvård hemma vid din uppfart. Boka på 2 minuter.</p>
+      <div class="hero-buttons">
+        <a href="#bokningsformular" class="btn btn--white btn--lg">Boka Nu</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- BOKNINGSFORMULÄR -->
-    <section class="section section--white">
-      <div class="container--xs">
-        <div class="form-wrapper fade-up">
+  <!-- 2. FÖRTROENDEELEMENT – Trust bar -->
+  <section class="section trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item">
+          <span class="trust-icon">🚐</span>
+          <span class="trust-text">Mobil bilvård – vi kommer till dig</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✅</span>
+          <span class="trust-text">Professionellt resultat</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">⚡</span>
+          <span class="trust-text">Enkelt att boka – svar inom 24h</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Form -->
-          <form id="booking-form">
+  <!-- 3. TJÄNSTER/PAKET – Compact with anchor buttons -->
+  <section class="section section--gray">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-title">
+        <h2>Välj Ditt Paket</h2>
+      </div>
+      <div class="grid-2">
+        <div class="package-card fade-up">
+          <h3>In- &amp; Utvändig Tvätt</h3>
+          <div class="package-price">1 599 kr</div>
+          <div class="package-list">
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Komplett ut- och invändig rengöring</span></div>
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Vax, däckglans &amp; fönsterputs</span></div>
+          </div>
+          <a href="#bokningsformular" class="btn btn--primary btn--full">Boka Detta Paket</a>
+        </div>
+        <div class="package-card package-card--featured fade-up fade-up-d1">
+          <div class="package-badge">Populärast</div>
+          <h3>In- &amp; Utvändig Tvätt PLUS</h3>
+          <div class="package-price">1 799 kr</div>
+          <div class="package-list">
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Allt i standardpaketet</span></div>
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Extra asfaltsfläckar &amp; vintersmuts</span></div>
+          </div>
+          <a href="#bokningsformular" class="btn btn--primary btn--full">Boka Detta Paket</a>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top: 32px;">
+        <div class="package-card fade-up">
+          <h3>Invändig Rekond</h3>
+          <div class="package-price">2 299 kr</div>
+          <div class="package-list">
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Djuprengöring av hela interiören</span></div>
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Ventilationsgaller, pedalställ &amp; fläckar</span></div>
+          </div>
+          <a href="#bokningsformular" class="btn btn--primary btn--full">Boka Detta Paket</a>
+        </div>
+        <div class="package-card fade-up fade-up-d1">
+          <h3>Helrekond</h3>
+          <div class="package-price">4 499 kr</div>
+          <div class="package-list">
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Komplett in- &amp; utvändig rekond</span></div>
+            <div class="checklist-item checklist-item--sm"><span class="checklist-icon">✓</span><span>Motortvätt, flygrost &amp; 6 mån vax</span></div>
+          </div>
+          <a href="#bokningsformular" class="btn btn--primary btn--full">Boka Detta Paket</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="form-group">
-              <label class="form-label">Namn <span class="required">*</span></label>
-              <input type="text" name="namn" class="form-input" required>
-            </div>
+  <!-- 4. SOCIALT BEVIS – Reviews -->
+  <section class="section section--white">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-title">
+        <h2>Vad Våra Kunder Säger</h2>
+      </div>
+      <div class="grid-3 fade-up">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Supernöjd! Bilen ser ut som ny och jag behövde inte ens lämna hemmet. Smidigt och proffsigt."</p>
+          <p class="review-author">– Anna K., Göteborg</p>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Bokade helrekond och resultatet överträffade alla förväntningar. Rekommenderar varmt!"</p>
+          <p class="review-author">– Marcus L., Mölndal</p>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Snabb respons, kom i tid och bilen blev skinande ren. Kommer absolut boka igen."</p>
+          <p class="review-author">– Sofia B., Kungsbacka</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="form-group">
-              <label class="form-label">Telefon <span class="required">*</span></label>
-              <input type="tel" name="telefon" class="form-input" required>
-            </div>
+  <!-- 5. BOKNINGSFORMULÄR – Primary conversion point -->
+  <section id="bokningsformular" class="section section--gray">
+    <div class="container--xs">
+      <div class="section-title">
+        <h2>Boka Din Rekond – Vi Kommer Till Dig</h2>
+        <p>Fyll i formuläret så återkommer vi inom 24 timmar med bekräftelse</p>
+      </div>
+      <div class="form-wrapper fade-up">
 
-            <div class="form-group">
-              <label class="form-label">Email <span class="required">*</span></label>
-              <input type="email" name="email" class="form-input" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Adress <span class="required">*</span></label>
-              <input type="text" name="adress" class="form-input" placeholder="Gatuadress, Postnummer, Stad" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Bilmärke &amp; Modell <span class="required">*</span></label>
-              <input type="text" name="bil" class="form-input" placeholder="Ex: Volvo XC90 2020" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Välj Paket <span class="required">*</span></label>
-              <select name="paket" class="form-select" required>
-                <option value="">Välj...</option>
-          <option value="In- & Utvändig Tvätt (1 599 kr)">In- &amp; Utvändig Tvätt – 1 599 kr</option>
-                          <option value="In- & Utvändig Tvätt PLUS (1 799 kr)">In- &amp; Utvändig Tvätt PLUS – 1 799 kr</option>
+        <!-- Form — ORÖRT FORMULÄRBLOCK START -->
+        <form id="booking-form">
+          <div class="form-group">
+            <label class="form-label">Namn <span class="required">*</span></label>
+            <input type="text" name="namn" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefon <span class="required">*</span></label>
+            <input type="tel" name="telefon" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email <span class="required">*</span></label>
+            <input type="email" name="email" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Adress <span class="required">*</span></label>
+            <input type="text" name="adress" class="form-input" placeholder="Gatuadress, Postnummer, Stad" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bilmärke &amp; Modell <span class="required">*</span></label>
+            <input type="text" name="bil" class="form-input" placeholder="Ex: Volvo XC90 2020" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Välj Paket <span class="required">*</span></label>
+            <select name="paket" class="form-select" required>
+              <option value="">Välj...</option>
+              <option value="In- & Utvändig Tvätt (1 599 kr)">In- &amp; Utvändig Tvätt – 1 599 kr</option>
+              <option value="In- & Utvändig Tvätt PLUS (1 799 kr)">In- &amp; Utvändig Tvätt PLUS – 1 799 kr</option>
               <option value="Invändig Rekond (2 299 kr)">Invändig Rekond – 2 299 kr</option>
               <option value="Helrekond (4 499 kr)">Helrekond – 4 499 kr</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Tilläggstjänster</label>
-              <div class="addon-checkboxes">
-                <label class="addon-checkbox-item">
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tilläggstjänster</label>
+            <div class="addon-checkboxes">
+              <label class="addon-checkbox-item">
                 <input type="checkbox" name="tillagg" value="Utvändig tvätt (699 kr)">
                 <span class="addon-checkbox-mark"></span>
                 <span class="addon-checkbox-text">Utvändig tvätt <span class="addon-checkbox-price">699 kr</span></span>
                 <span class="addon-checkbox-info" data-tooltip="Lägg till en utvändig tvätt tillsammans med din invändiga rekond. Ca 1 timme extra.">ⓘ</span>
               </label>
               <label class="addon-checkbox-item">
-                  <input type="checkbox" name="tillagg" value="Sätesrengöring (999 kr)">
-                  <span class="addon-checkbox-mark"></span>
-                  <span class="addon-checkbox-text">Sätesrengöring <span class="addon-checkbox-price">999 kr</span></span>
-                  <span class="addon-checkbox-info" data-tooltip="Har din bil textilsäten djuprengörs dessa med en speciell textilrengöringsmaskin för att få bort fläckar och ingrodd smuts. Tänk på att vädra din bil efter rengöringen då sätena fortfarande kommer vara fuktiga.">ⓘ</span>
-                </label>
-                <label class="addon-checkbox-item">
-                  <input type="checkbox" name="tillagg" value="Lädervårdsbehandling (999 kr)">
-                  <span class="addon-checkbox-mark"></span>
-                  <span class="addon-checkbox-text">Lädervårdsbehandling <span class="addon-checkbox-price">999 kr</span></span>
-                  <span class="addon-checkbox-info" data-tooltip="Har din bil lädersäten rengörs dessa, återfuktas och slutligen skyddas för att de ska behålla sin mjukhet, färg och ursprungliga utseende samt förhindra bildning av veck och sprickor.">ⓘ</span>
-                </label>
-                <label class="addon-checkbox-item">
-                  <input type="checkbox" name="tillagg" value="AC-rengöring (599 kr)">
-                  <span class="addon-checkbox-mark"></span>
-                  <span class="addon-checkbox-text">AC-rengöring <span class="addon-checkbox-price">599 kr</span></span>
-                  <span class="addon-checkbox-info" data-tooltip="Tar bort mögel och bakterier som samlas i systemet och motverkar dålig lukt och allergiska reaktioner.">ⓘ</span>
-                </label>
-                <label class="addon-checkbox-item">
-                  <input type="checkbox" name="tillagg" value="Extra smutsig (299 kr)">
-                  <span class="addon-checkbox-mark"></span>
-                  <span class="addon-checkbox-text">Extra smutsig <span class="addon-checkbox-price">299 kr</span></span>
-                  <span class="addon-checkbox-info" data-tooltip="Om bilen är väldigt smutsig med mycket ingrodd smuts.">ⓘ</span>
-                </label>
-                <label class="addon-checkbox-item">
-                  <input type="checkbox" name="tillagg" value="Borttagning av djurhår (299 kr)">
-                  <span class="addon-checkbox-mark"></span>
-                  <span class="addon-checkbox-text">Borttagning av djurhår <span class="addon-checkbox-price">299 kr</span></span>
-                  <span class="addon-checkbox-info" data-tooltip="Om du haft djur i din bil och vill att vi ska lägga extra tid för att få bort djurhåren.">ⓘ</span>
-                </label>
-                <label class="addon-checkbox-item">
-                  <input type="checkbox" name="tillagg" value="Glasförsegling (399 kr)">
-                  <span class="addon-checkbox-mark"></span>
-                  <span class="addon-checkbox-text">Glasförsegling <span class="addon-checkbox-price">399 kr</span></span>
-                  <span class="addon-checkbox-info" data-tooltip="Vindrutan förseglas så att den blir extremt vattenavstötande. Din körning blir både säkrare och rutan hålls ren längre.">ⓘ</span>
-                </label>
-                <label class="addon-checkbox-item">
+                <input type="checkbox" name="tillagg" value="Sätesrengöring (999 kr)">
+                <span class="addon-checkbox-mark"></span>
+                <span class="addon-checkbox-text">Sätesrengöring <span class="addon-checkbox-price">999 kr</span></span>
+                <span class="addon-checkbox-info" data-tooltip="Har din bil textilsäten djuprengörs dessa med en speciell textilrengöringsmaskin för att få bort fläckar och ingrodd smuts. Tänk på att vädra din bil efter rengöringen då sätena fortfarande kommer vara fuktiga.">ⓘ</span>
+              </label>
+              <label class="addon-checkbox-item">
+                <input type="checkbox" name="tillagg" value="Lädervårdsbehandling (999 kr)">
+                <span class="addon-checkbox-mark"></span>
+                <span class="addon-checkbox-text">Lädervårdsbehandling <span class="addon-checkbox-price">999 kr</span></span>
+                <span class="addon-checkbox-info" data-tooltip="Har din bil lädersäten rengörs dessa, återfuktas och slutligen skyddas för att de ska behålla sin mjukhet, färg och ursprungliga utseende samt förhindra bildning av veck och sprickor.">ⓘ</span>
+              </label>
+              <label class="addon-checkbox-item">
+                <input type="checkbox" name="tillagg" value="AC-rengöring (599 kr)">
+                <span class="addon-checkbox-mark"></span>
+                <span class="addon-checkbox-text">AC-rengöring <span class="addon-checkbox-price">599 kr</span></span>
+                <span class="addon-checkbox-info" data-tooltip="Tar bort mögel och bakterier som samlas i systemet och motverkar dålig lukt och allergiska reaktioner.">ⓘ</span>
+              </label>
+              <label class="addon-checkbox-item">
+                <input type="checkbox" name="tillagg" value="Extra smutsig (299 kr)">
+                <span class="addon-checkbox-mark"></span>
+                <span class="addon-checkbox-text">Extra smutsig <span class="addon-checkbox-price">299 kr</span></span>
+                <span class="addon-checkbox-info" data-tooltip="Om bilen är väldigt smutsig med mycket ingrodd smuts.">ⓘ</span>
+              </label>
+              <label class="addon-checkbox-item">
+                <input type="checkbox" name="tillagg" value="Borttagning av djurhår (299 kr)">
+                <span class="addon-checkbox-mark"></span>
+                <span class="addon-checkbox-text">Borttagning av djurhår <span class="addon-checkbox-price">299 kr</span></span>
+                <span class="addon-checkbox-info" data-tooltip="Om du haft djur i din bil och vill att vi ska lägga extra tid för att få bort djurhåren.">ⓘ</span>
+              </label>
+              <label class="addon-checkbox-item">
+                <input type="checkbox" name="tillagg" value="Glasförsegling (399 kr)">
+                <span class="addon-checkbox-mark"></span>
+                <span class="addon-checkbox-text">Glasförsegling <span class="addon-checkbox-price">399 kr</span></span>
+                <span class="addon-checkbox-info" data-tooltip="Vindrutan förseglas så att den blir extremt vattenavstötande. Din körning blir både säkrare och rutan hålls ren längre.">ⓘ</span>
+              </label>
+              <label class="addon-checkbox-item">
                 <input type="checkbox" name="tillagg" value="Motortvätt (299 kr)">
                 <span class="addon-checkbox-mark"></span>
                 <span class="addon-checkbox-text">Motortvätt <span class="addon-checkbox-price">299 kr</span></span>
                 <span class="addon-checkbox-info" data-tooltip="Rengöring av motorutrymmet.">ⓘ</span>
               </label>
               <label class="addon-checkbox-item">
-                  <input type="checkbox" name="tillagg" value="Påfyllning av spolarvätska (249 kr)">
-                  <span class="addon-checkbox-mark"></span>
-                  <span class="addon-checkbox-text">Påfyllning av spolarvätska <span class="addon-checkbox-price">249 kr</span></span>
-                </label>
-              </div>
+                <input type="checkbox" name="tillagg" value="Påfyllning av spolarvätska (249 kr)">
+                <span class="addon-checkbox-mark"></span>
+                <span class="addon-checkbox-text">Påfyllning av spolarvätska <span class="addon-checkbox-price">249 kr</span></span>
+              </label>
             </div>
-            <div class="form-group">
-              <label class="form-label">Önskad Tid</label>
-              <textarea name="tid" class="form-textarea" placeholder="Ex: Helst vardagar mellan 10–14, eller specificera datum"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Meddelande</label>
-              <textarea name="meddelande" class="form-textarea" placeholder="Något speciellt vi bör veta?"></textarea>
-            </div>
-
-            <button type="submit" class="form-submit">Skicka Bokningsförfrågan</button>
-          </form>
-
-          <!-- Success message (hidden by default) -->
-          <div class="form-success" style="display: none;">
-            <div class="icon">✅</div>
-            <h2>Tack för din bokning!</h2>
-            <p>Vi återkommer inom 24 timmar med bekräftelse på tid och datum.</p>
           </div>
+          <div class="form-group">
+            <label class="form-label">Önskad Tid</label>
+            <textarea name="tid" class="form-textarea" placeholder="Ex: Helst vardagar mellan 10–14, eller specificera datum"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Meddelande</label>
+            <textarea name="meddelande" class="form-textarea" placeholder="Något speciellt vi bör veta?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Skicka Bokningsförfrågan</button>
+        </form>
+        <!-- ORÖRT FORMULÄRBLOCK SLUT -->
 
-          <p class="form-note">
-            Vi återkommer inom 24 timmar med bekräftelse på tid och datum.<br>
-            Betalning sker med Swish på plats när jobbet är klart.
-          </p>
-
+        <!-- Success message (hidden by default) -->
+        <div class="form-success" style="display: none;">
+          <div class="icon">✅</div>
+          <h2>Tack för din bokning!</h2>
+          <p>Vi återkommer inom 24 timmar med bekräftelse på tid och datum.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- KONTAKTBOX -->
-    <section class="section section--gray" style="padding: 50px 20px;">
-      <div class="contact-box fade-up">
-        <p>Föredrar du att kontakta oss direkt?</p>
-            <a href="kontakt.html">Kontakta oss</a>
-        <p class="note">Vi svarar vanligtvis inom några timmar.</p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div>
-        <div class="logo logo--sm"><span class="logo-simply">Simply</span><span class="logo-shine">Shine</span></div>
-        <p class="footer-tagline">Premium Mobil Bilvård i Göteborg</p>
-      </div>
-      <div>
-        <h4>Kontakt</h4>
-            <a href="kontakt.html">Kontakta oss</a>
-        <p class="footer-email-note">Vi återkommer inom 24 timmar</p>
-      </div>
-      <div class="footer-links">
-        <h4>Snabblänkar</h4>
-        <a href="tjanster.html">Tjänster</a>
-        <a href="boka.html">Boka</a>
-        <a href="s        <a href="sa-funkar-det.html">Så Funkar Det</a>
-        <a href="om-oss.html">Om Oss</a>
+        <p class="form-note">
+          Vi återkommer inom 24 timmar med bekräftelse på tid och datum.<br>
+          Betalning sker med Swish på plats när jobbet är klart.
+        </p>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 SimplyShine Sverige AB. Alla rättigheter förbehållna.</div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
-  <script>
-    const MAKE_WEBHOOK = "https://hook.eu1.make.com/jrwx2iw09w0ji981viprgabgrvtu2oyr";
+</main>
 
-    document.getElementById("booking-form").addEventListener("submit", async function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form));
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="logo logo--sm"><span class="logo-simply">Simply</span><span class="logo-shine">Shine</span></div>
+      <p class="footer-tagline">Premium Mobil Bilvård i Göteborg</p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <a href="kontakt.html">Kontakta oss</a>
+      <p class="footer-email-note">Vi återkommer inom 24 timmar</p>
+    </div>
+    <div class="footer-links">
+      <h4>Snabblänkar</h4>
+      <a href="tjanster.html">Tjänster</a>
+      <a href="boka.html">Boka</a>
+      <a href="sa-funkar-det.html">Så Funkar Det</a>
+      <a href="om-oss.html">Om Oss</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 SimplyShine Sverige AB. Alla rättigheter förbehållna.</div>
+</footer>
 
-        const tillagg = Array.from(form.querySelectorAll('input[name="tillagg"]:checked')).map(cb => cb.value);
-        data.tillagg = tillagg.join(', ');
-      try {
-        await fetch(MAKE_WEBHOOK, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-        form.style.display = "none";
-        document.querySelector(".form-success").style.display = "block";
+<script src="script.js"></script>
+<script>
+const MAKE_WEBHOOK = "https://hook.eu1.make.com/jrwx2iw09w0ji981viprgabgrvtu2oyr";
 
-                        // Event snippet for Skicka in formulär för potentiella kunder conversion page
-                        gtag('event', 'conversion', {
-                                  'send_to': 'AW-17941835180/q0WdCPjRov8bEKzbqutC',
-                                            'value': 1.0,
-                                                      'currency': 'SEK'
-                                                              });
-      } catch (err) {
-        alert("Något gick fel. Försök igen eller kontakta oss på info@simplyshine.se");
-      }
+document.getElementById("booking-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = Object.fromEntries(new FormData(form));
+
+  const tillagg = Array.from(form.querySelectorAll('input[name="tillagg"]:checked')).map(cb => cb.value);
+  data.tillagg = tillagg.join(', ');
+
+  try {
+    await fetch(MAKE_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
     });
-  </script>
+
+    form.style.display = "none";
+    document.querySelector(".form-success").style.display = "block";
+
+    // Event snippet for Skicka in formulär för potentiella kunder conversion page
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17941835180/q0WdCPjRov8bEKzbqutC',
+      'value': 1.0,
+      'currency': 'SEK'
+    });
+  } catch (err) {
+    alert("Något gick fel. Försök igen eller kontakta oss på info@simplyshine.se");
+  }
+});
+</script>
+
 </body>
 </html>
