@@ -689,6 +689,15 @@ img {
   margin-bottom: 24px;
 }
 
+.package-description {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 24px;
+}
+
 /* ═══════════════════════════════════════════
    Checklist
    ═══════════════════════════════════════════ */
