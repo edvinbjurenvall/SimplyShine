@@ -1744,3 +1744,401 @@ img {
     padding: 20px 16px;
   }
 }
+
+
+/* ═══════════════════════════════════════════
+   Bokningskalender
+   ═══════════════════════════════════════════ */
+
+.booking-calendar {
+     background: var(--white);
+     border: 1.5px solid var(--gray-border);
+     border-radius: var(--radius-md);
+     padding: 20px;
+     margin-bottom: 16px;
+}
+
+.cal-header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin-bottom: 16px;
+}
+
+.cal-month {
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 700;
+     font-size: 18px;
+     color: var(--dark);
+}
+
+.cal-nav {
+     background: var(--primary-light);
+     border: none;
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     cursor: pointer;
+     font-size: 16px;
+     color: var(--primary-dark);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: background 0.2s;
+     font-family: 'DM Sans', sans-serif;
+     font-weight: 600;
+}
+
+.cal-nav:hover {
+     background: var(--primary);
+     color: var(--white);
+}
+
+.cal-weekdays {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 4px;
+     margin-bottom: 8px;
+}
+
+.cal-weekdays span {
+     text-align: center;
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 600;
+     font-size: 12px;
+     color: var(--text-light);
+     padding: 6px 0;
+     text-transform: uppercase;
+     letter-spacing: 0.05em;
+}
+
+.cal-days {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 4px;
+}
+
+.cal-day {
+     aspect-ratio: 1;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border: none;
+     background: var(--gray-bg);
+     border-radius: var(--radius-sm);
+     font-family: 'DM Sans', sans-serif;
+     font-size: 15px;
+     font-weight: 500;
+     color: var(--text);
+     cursor: pointer;
+     transition: all 0.2s;
+}
+
+.cal-day:hover:not(.cal-day--disabled):not(.cal-day--empty) {
+     background: var(--primary-light);
+     color: var(--primary-dark);
+     transform: scale(1.05);
+}
+
+.cal-day--empty {
+     background: transparent;
+     cursor: default;
+}
+
+.cal-day--disabled {
+     color: #ccc;
+     background: #f5f5f5;
+     cursor: not-allowed;
+     text-decoration: line-through;
+}
+
+.cal-day--selected {
+     background: var(--primary) !important;
+     color: var(--white) !important;
+     font-weight: 700;
+     box-shadow: 0 2px 8px rgba(125, 211, 232, 0.4);
+}
+
+/* Tidslottar */
+.time-slots {
+     margin-bottom: 16px;
+     animation: fadeIn 0.3s ease;
+}
+
+.time-slots-label {
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 600;
+     font-size: 14px;
+     color: var(--dark);
+     margin-bottom: 10px;
+}
+
+.time-slots-label span {
+     color: var(--primary-dark);
+}
+
+.time-buttons {
+     display: flex;
+     gap: 12px;
+     flex-wrap: wrap;
+}
+
+.time-btn {
+     flex: 1;
+     min-width: 120px;
+     padding: 14px 24px;
+     border: 2px solid var(--primary);
+     border-radius: var(--radius-full);
+     background: var(--white);
+     color: var(--primary-dark);
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 700;
+     font-size: 16px;
+     cursor: pointer;
+     transition: all 0.2s;
+     text-align: center;
+}
+
+.time-btn:hover:not(.time-btn--disabled) {
+     background: var(--primary-light);
+     transform: translateY(-2px);
+     box-shadow: var(--shadow-sm);
+}
+
+.time-btn--selected {
+     background: var(--primary) !important;
+     color: var(--white) !important;
+     border-color: var(--primary-dark) !important;
+     box-shadow: var(--shadow-md);
+}
+
+.time-btn--disabled {
+     border-color: var(--gray-border);
+     color: #bbb;
+     cursor: not-allowed;
+     background: #f9f9f9;
+}
+
+.no-slots-msg {
+     font-family: 'DM Sans', sans-serif;
+     font-size: 14px;
+     color: var(--text-light);
+     font-style: italic;
+}
+
+/* Vald tid-display */
+.selected-datetime {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     padding: 14px 18px;
+     background: var(--primary-light);
+     border: 2px solid var(--primary);
+     border-radius: var(--radius-md);
+     margin-top: 12px;
+     animation: fadeIn 0.3s ease;
+}
+
+.selected-datetime-icon {
+     font-size: 20px;
+}
+
+#selected-datetime-text {
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 600;
+     font-size: 15px;
+     color: var(--dark);
+     flex: 1;
+}
+
+.clear-datetime {
+     background: none;
+     border: none;
+     font-size: 22px;
+     color: var(--text-light);
+     cursor: pointer;
+     padding: 0 4px;
+     line-height: 1;
+     transition: color 0.2s;
+}
+
+.clear-datetime:hover {
+     color: var(--dark);
+}
+
+/* ═══════════════════════════════════════════
+   Admin-sida
+   ═══════════════════════════════════════════ */
+
+.admin-container {
+     max-width: 800px;
+     margin: 100px auto 40px;
+     padding: 0 20px;
+}
+
+.admin-header {
+     text-align: center;
+     margin-bottom: 40px;
+}
+
+.admin-header h1 {
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 800;
+     font-size: 28px;
+     color: var(--dark);
+     margin-bottom: 8px;
+}
+
+.admin-header p {
+     font-family: 'DM Sans', sans-serif;
+     font-size: 16px;
+     color: var(--text-light);
+}
+
+.admin-calendar {
+     background: var(--white);
+     border: 1.5px solid var(--gray-border);
+     border-radius: var(--radius-lg);
+     padding: 30px;
+     margin-bottom: 30px;
+     box-shadow: var(--shadow-sm);
+}
+
+.admin-slots {
+     margin-top: 20px;
+}
+
+.admin-slot-item {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 14px 18px;
+     background: var(--gray-bg);
+     border-radius: var(--radius-sm);
+     margin-bottom: 8px;
+     border: 1.5px solid var(--gray-border);
+     transition: border-color 0.2s;
+}
+
+.admin-slot-item:hover {
+     border-color: var(--primary);
+}
+
+.admin-slot-time {
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 700;
+     font-size: 18px;
+     color: var(--dark);
+}
+
+.admin-slot-status {
+     font-family: 'DM Sans', sans-serif;
+     font-size: 14px;
+     font-weight: 600;
+     padding: 6px 16px;
+     border-radius: var(--radius-full);
+     cursor: pointer;
+     border: none;
+     transition: all 0.2s;
+}
+
+.admin-slot-status--open {
+     background: #e8f5e9;
+     color: #2e7d32;
+}
+
+.admin-slot-status--open:hover {
+     background: #ffebee;
+     color: #c62828;
+}
+
+.admin-slot-status--blocked {
+     background: #ffebee;
+     color: #c62828;
+}
+
+.admin-slot-status--blocked:hover {
+     background: #e8f5e9;
+     color: #2e7d32;
+}
+
+.admin-export-section {
+     background: var(--white);
+     border: 1.5px solid var(--gray-border);
+     border-radius: var(--radius-lg);
+     padding: 30px;
+     box-shadow: var(--shadow-sm);
+}
+
+.admin-export-section h3 {
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 700;
+     font-size: 18px;
+     color: var(--dark);
+     margin-bottom: 12px;
+}
+
+.admin-export-section p {
+     font-family: 'DM Sans', sans-serif;
+     font-size: 14px;
+     color: var(--text-light);
+     margin-bottom: 16px;
+     line-height: 1.6;
+}
+
+.admin-json-output {
+     width: 100%;
+     min-height: 150px;
+     padding: 16px;
+     border-radius: var(--radius-sm);
+     border: 1.5px solid var(--gray-border);
+     font-family: monospace;
+     font-size: 13px;
+     color: var(--text);
+     background: var(--gray-bg);
+     resize: vertical;
+     margin-bottom: 12px;
+}
+
+.admin-btn-row {
+     display: flex;
+     gap: 12px;
+     flex-wrap: wrap;
+}
+
+.admin-date-label {
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 600;
+     font-size: 16px;
+     color: var(--dark);
+     margin-bottom: 12px;
+}
+
+.admin-info {
+     padding: 16px;
+     background: var(--primary-light);
+     border-radius: var(--radius-sm);
+     font-family: 'DM Sans', sans-serif;
+     font-size: 14px;
+     color: var(--text);
+     margin-bottom: 20px;
+     line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+     .time-buttons {
+            flex-direction: column;
+     }
+     .time-btn {
+            min-width: unset;
+     }
+     .admin-container {
+            margin-top: 80px;
+     }
+     .admin-calendar {
+            padding: 20px;
+     }
+     .admin-btn-row {
+            flex-direction: column;
+     }
+}
