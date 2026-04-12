@@ -1,259 +1,385 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Admin – Hantera Bokningar | SimplyShine</title>
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="style.css">
-  </head>
-<body>
+    <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Admin – Hantera Bokningar | SimplyShine</title>
+        <meta name="robots" content="noindex, nofollow">
+        <link rel="stylesheet" href="style.css">
+        <style>
+                .admin-status { padding: 12px 16px; border-radius: 8px; margin: 16px 0; display: none; font-weight: 600; }
+                .admin-status--success { background: #e8f5e9; color: #2e7d32; display: block; }
+                .admin-status--error { background: #ffebee; color: #c62828; display: block; }
+                .admin-status--loading { background: #e3f2fd; color: #1565c0; display: block; }
+                .admin-token-section { background: #f5f5f5; padding: 20px; border-radius: 12px; margin-bottom: 24px; }
+                .admin-token-section input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; margin-top: 8px; }
+                .admin-token-section p { margin: 0 0 8px; font-size: 14px; color: #555; }
+                .admin-save-btn { background: #2e7d32; color: #fff; border: none; padding: 14px 32px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 16px; }
+                .admin-save-btn:hover { background: #1b5e20; }
+                .admin-save-btn:disabled { background: #999; cursor: not-allowed; }
+              </style>
+    </head>
+  <body>
 
-  <header class="header">
-      <a href="index.html" class="logo" aria-label="SimplyShine startsida">
-            <span class="logo-simply">Simply</span>span><span class="logo-shine">Shine</span>span>
-      </a>a>
-      <nav class="nav">
-            <a href="boka.html" class="nav-link">Boka-sidan</a>a>
-            <a href="admin.html" class="nav-link nav-link--cta active">Admin</a>a>
-      </nav>nav>
-  </header>header>
+      <header class="header">
+            <a href="index.html" class="logo" aria-label="SimplyShine startsida">
+                    <span class="logo-simply">Simply</span>span><span class="logo-shine">Shine</span>span>
+            </a>a>
+            <nav class="nav">
+                    <a href="boka.html" class="nav-link">Boka-sidan</a>a>
+                    <a href="admin.html" class="nav-link nav-link--cta active">Admin</a>a>
+            </nav>nav>
+      </header>header>
 
-  <div class="admin-container">
-      <div class="admin-header">
-            <h1>Hantera Bokningar</h1>
-          <p>Klicka pa en dag i kalendern, sedan blockera eller oppna tider.</p>
-      </div>div>
-  
-    <div class="admin-info">
-        <strong>Sa har fungerar det:</strong><br>
-        1. Valj ett datum i kalendern nedan.<br>
-        2. Klicka pa "Ledig" for att blockera en tid, eller "Blockerad" for att oppna den igen.<br>
-        3. Nar du ar klar, kopiera JSON-texten langst ner och uppdatera filen <code>blocked-slots.json</code> i ditt GitHub-repo.
-    </div>div>
-  
-    <div class="admin-calendar">
-        <div class="cal-header">
-              <button type="button" class="cal-nav" id="admin-cal-prev">&larr;</button>button>
-              <span class="cal-month" id="admin-cal-month-label"></span>span>
-              <button type="button" class="cal-nav" id="admin-cal-next">&rarr;</button>button>
+    <div class="admin-container">
+        <div class="admin-header">
+              <h1>Hantera Bokningar</h1>
+            <p>Klicka på en dag i kalendern, blockera/öppna tider, och tryck "Spara & Publicera".</p>
         </div>div>
-        <div class="cal-weekdays">
-              <span>Man</span><span>Tis</span><span>Ons</span><span>Tor</span><span>Fre</span><span>Lor</span><span>Son</span>
-        </div>div>
-        <div class="cal-days" id="admin-cal-days"></div>div>
     
-        <div id="admin-slots" class="admin-slots" style="display:none;">
-              <p class="admin-date-label" id="admin-date-label"></p>
-              <div id="admin-slot-list"></div>div>
-        </div>div>
+      <div class="admin-token-section">
+          <p><strong>GitHub-token</strong> (behövs för att spara direkt till sajten)</p>
+          <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxx">
+          <p style="margin-top: 6px; font-size: 12px; color: #888;">Din token sparas bara lokalt i din webbläsare.</p>
+      </div>div>
+    
+      <div id="admin-status" class="admin-status"></div>div>
+    
+      <div class="admin-info">
+          <strong>Så här fungerar det:</strong><br>
+          1. Klistra in din GitHub-token ovan (bara första gången).<br>
+          2. Välj ett datum i kalendern nedan.<br>
+          3. Klicka på "Ledig" för att blockera en tid, eller "Blockerad" för att öppna den igen.<br>
+          4. Tryck <strong>"Spara & Publicera"</strong> – ändringarna går live automatiskt!
+      </div>div>
+    
+      <div class="admin-calendar">
+          <div class="cal-header">
+                <button type="button" class="cal-nav" id="admin-cal-prev">&larr;</button>button>
+                <span class="cal-month" id="admin-cal-month-label"></span>span>
+                <button type="button" class="cal-nav" id="admin-cal-next">&rarr;</button>button>
+          </div>div>
+          <div class="cal-weekdays">
+                <span>Mån</span><span>Tis</span><span>Ons</span><span>Tor</span><span>Fre</span><span>Lör</span><span>Sön</span>
+          </div>div>
+          <div class="cal-days" id="admin-cal-days"></div>div>
+          <div id="admin-slots" class="admin-slots" style="display:none;">
+                <p class="admin-date-label" id="admin-date-label"></p>
+                <div id="admin-slot-list"></div>div>
+          </div>div>
+      </div>div>
+    
+      <button type="button" class="admin-save-btn" id="save-publish-btn">Spara & Publicera</button>button>
+    
+      <div class="admin-export-section">
+          <h3>Aktuell JSON (för referens)</h3>
+          <textarea id="admin-json-output" class="admin-json-output" readonly></textarea>
+          <div class="admin-btn-row">
+                <button type="button" class="btn btn--secondary" id="clear-all-btn">Rensa alla blockeringar</button>button>
+          </div>div>
+      </div>div>
     </div>div>
   
-    <div class="admin-export-section">
-        <h3>Exportera blockerade tider</h3>
-        <p>Kopiera texten nedan och ersatt innehallet i <code>blocked-slots.json</code> i ditt GitHub-repo (simplyshine-site/blocked-slots.json). Deploya sedan till Netlify.</p>
-        <textarea id="admin-json-output" class="admin-json-output" readonly></textarea>
-        <div class="admin-btn-row">
-              <button type="button" class="btn btn--primary" id="copy-json-btn">Kopiera JSON</button>button>
-              <button type="button" class="btn btn--secondary" id="clear-all-btn">Rensa alla blockeringar</button>button>
-        </div>div>
-    </div>div>
-  </div>div>
+  <script>
+    (function() {
+        const MONTH_NAMES = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
+        const DAY_NAMES  = ['Söndag','Måndag','Tisdag','Onsdag','Torsdag','Fredag','Lördag'];
 
-<script>
-  (function() {
-      const MONTH_NAMES = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
-      const DAY_NAMES = ['Sondag','Mandag','Tisdag','Onsdag','Torsdag','Fredag','Lordag'];
+        const GITHUB_OWNER = 'edvinbjurenvall';
+        const GITHUB_REPO  = 'SimplyShine';
+        const FILE_PATH    = 'simplyshine-site/blocked-slots.json';
+        const BRANCH       = 'main';
+        const TOKEN_KEY    = 'simplyshine_gh_token';
+        const STORAGE_KEY  = 'simplyshine_blocked_slots';
 
-      const STORAGE_KEY = 'simplyshine_blocked_slots';
+        let currentMonth, currentYear;
+        let selectedDate = null;
+        let blockedSlots = [];
+        let fileSha = null;
 
-      let currentMonth, currentYear;
-      let selectedDate = null;
-      let blockedSlots = [];
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        currentMonth = today.getMonth();
+        currentYear  = today.getFullYear();
 
-      const today = new Date();
-      today.setHours(0,0,0,0);
-      currentMonth = today.getMonth();
-      currentYear = today.getFullYear();
+        // ── Token-hantering ──
+        const tokenInput = document.getElementById('github-token');
+        const savedToken = localStorage.getItem(TOKEN_KEY);
+        if (savedToken) tokenInput.value = savedToken;
+        tokenInput.addEventListener('input', () => {
+              localStorage.setItem(TOKEN_KEY, tokenInput.value.trim());
+        });
+        function getToken() { return tokenInput.value.trim(); }
 
-      // Ladda fran localStorage
-      function loadBlocked() {
-            try {
-                    const saved = localStorage.getItem(STORAGE_KEY);
-                    if (saved) blockedSlots = JSON.parse(saved);
-            } catch(e) { blockedSlots = []; }
-      }
+        // ── Status-meddelanden ──
+        function showStatus(msg, type) {
+              const el = document.getElementById('admin-status');
+              el.textContent = msg;
+              el.className = 'admin-status admin-status--' + type;
+        }
+        function hideStatus() {
+              document.getElementById('admin-status').className = 'admin-status';
+        }
 
-      function saveBlocked() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(blockedSlots));
-            updateJsonOutput();
-      }
+        // ── Ladda blocked-slots.json från GitHub ──
+        async function loadFromGitHub() {
+              const token = getToken();
+              if (!token) {
+                      loadFromLocalStorage();
+                      return;
+              }
+              showStatus('Laddar blockerade tider från GitHub...', 'loading');
+              try {
+                      const resp = await fetch(
+                                `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${FILE_PATH}?ref=${BRANCH}`,
+                        { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } }
+                              );
+                      if (!resp.ok) throw new Error('Kunde inte hämta filen (HTTP ' + resp.status + ')');
+                      const data = await resp.json();
+                      fileSha = data.sha;
+                      const content = atob(data.content.replace(/\n/g, ''));
+                      blockedSlots = JSON.parse(content) || [];
+                      localStorage.setItem(STORAGE_KEY, JSON.stringify(blockedSlots));
+                      showStatus('Laddade ' + blockedSlots.length + ' blockerade tider från GitHub.', 'success');
+                      setTimeout(hideStatus, 3000);
+              } catch(e) {
+                      showStatus('Kunde inte ladda från GitHub: ' + e.message + '. Använder lokal data.', 'error');
+                      loadFromLocalStorage();
+              }
+              renderCalendar();
+              updateJsonOutput();
+        }
 
-      function isBlocked(dateStr, time) {
-            return blockedSlots.some(s => s.date === dateStr && s.time === time);
-      }
+        function loadFromLocalStorage() {
+              try {
+                      const saved = localStorage.getItem(STORAGE_KEY);
+                      if (saved) blockedSlots = JSON.parse(saved);
+              } catch(e) { blockedSlots = []; }
+        }
 
-      function toggleSlot(dateStr, time) {
-            const idx = blockedSlots.findIndex(s => s.date === dateStr && s.time === time);
-            if (idx >= 0) {
-                    blockedSlots.splice(idx, 1);
-            } else {
-                    blockedSlots.push({ date: dateStr, time: time });
-            }
-            saveBlocked();
-      }
+        function saveLocal() {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(blockedSlots));
+              updateJsonOutput();
+        }
 
-      function getSlotsForDate(date) {
-            const day = date.getDay();
-            if (day === 0 || day === 6) return ['10:00'];
-            return ['08:00', '13:00'];
-      }
+        // ── Spara till GitHub ──
+        async function saveToGitHub() {
+              const token = getToken();
+              if (!token) {
+                      showStatus('Du måste ange en GitHub-token ovan!', 'error');
+                      return;
+              }
 
-      function formatDateStr(d) {
-            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-      }
+              const btn = document.getElementById('save-publish-btn');
+              btn.disabled = true;
+              btn.textContent = 'Sparar...';
+              showStatus('Pushar ändringar till GitHub...', 'loading');
 
-      function formatSwedishDate(dateStr) {
-            const d = new Date(dateStr + 'T00:00:00');
-            return DAY_NAMES[d.getDay()] + ' ' + d.getDate() + ' ' + MONTH_NAMES[d.getMonth()] + ' ' + d.getFullYear();
-      }
+              try {
+                      // Hämta nuvarande SHA om vi inte har den
+                      if (!fileSha) {
+                                const getResp = await fetch(
+                                            `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${FILE_PATH}?ref=${BRANCH}`,
+                                  { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } }
+                                          );
+                                if (getResp.ok) {
+                                            const getData = await getResp.json();
+                                            fileSha = getData.sha;
+                                }
+                      }
 
-      function renderCalendar() {
-            const daysEl = document.getElementById('admin-cal-days');
-            const labelEl = document.getElementById('admin-cal-month-label');
-            labelEl.textContent = MONTH_NAMES[currentMonth] + ' ' + currentYear;
-            daysEl.innerHTML = '';
+                      // Sortera och filtrera
+                      const sorted = blockedSlots
+                        .filter(s => s.date >= formatDateStr(today))
+                        .sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
 
-            const firstDay = new Date(currentYear, currentMonth, 1);
-            let startDay = firstDay.getDay();
-            startDay = startDay === 0 ? 6 : startDay - 1;
+                      const jsonContent = JSON.stringify(sorted, null, 2);
+                      const base64Content = btoa(unescape(encodeURIComponent(jsonContent)));
 
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+                      const body = {
+                                message: 'Uppdatera blockerade tider via admin',
+                                content: base64Content,
+                                branch: BRANCH
+                      };
+                      if (fileSha) body.sha = fileSha;
 
-            for (let i = 0; i < startDay; i++) {
-                    const empty = document.createElement('span');
-                    empty.className = 'cal-day cal-day--empty';
-                    daysEl.appendChild(empty);
-            }
+                      const putResp = await fetch(
+                                `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${FILE_PATH}`,
+                        {
+                                    method: 'PUT',
+                                    headers: {
+                                                  'Authorization': 'token ' + token,
+                                                  'Accept': 'application/vnd.github.v3+json',
+                                                  'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(body)
+                        }
+                              );
 
-            for (let d = 1; d <= daysInMonth; d++) {
-                    const date = new Date(currentYear, currentMonth, d);
-                    date.setHours(0,0,0,0);
-                    const dateStr = formatDateStr(date);
-                    const el = document.createElement('button');
-                    el.type = 'button';
-                    el.className = 'cal-day';
-                    el.textContent = d;
+                      if (!putResp.ok) {
+                                const errData = await putResp.json();
+                                throw new Error(errData.message || 'HTTP ' + putResp.status);
+                      }
 
-                    // Markera om alla slots ar blockerade
-                    const slots = getSlotsForDate(date);
-                    const allBlocked = slots.every(t => isBlocked(dateStr, t));
-                    const someBlocked = slots.some(t => isBlocked(dateStr, t));
-                    if (allBlocked) el.style.background = '#ffebee';
-                    else if (someBlocked) el.style.background = '#fff3e0';
+                      const result = await putResp.json();
+                      fileSha = result.content.sha;
+                      blockedSlots = sorted;
+                      saveLocal();
 
-                    if (selectedDate === dateStr) el.classList.add('cal-day--selected');
+                      showStatus('Ändringarna är sparade och publicerade! Netlify deployer automatiskt om ca 30 sek.', 'success');
+              } catch(e) {
+                      showStatus('Kunde inte spara: ' + e.message, 'error');
+              }
 
-                    el.addEventListener('click', () => {
-                              selectedDate = dateStr;
-                              renderCalendar();
-                              showAdminSlots(dateStr, date);
-                    });
+              btn.disabled = false;
+              btn.textContent = 'Spara & Publicera';
+        }
 
-                    daysEl.appendChild(el);
-            }
-      }
+        // ── Kalender-funktioner ──
+        function isBlocked(dateStr, time) {
+              return blockedSlots.some(s => s.date === dateStr && s.time === time);
+        }
 
-      function showAdminSlots(dateStr, date) {
-            const container = document.getElementById('admin-slots');
-            const label = document.getElementById('admin-date-label');
-            const list = document.getElementById('admin-slot-list');
+        function toggleSlot(dateStr, time) {
+              const idx = blockedSlots.findIndex(s => s.date === dateStr && s.time === time);
+              if (idx >= 0) { blockedSlots.splice(idx, 1); }
+              else { blockedSlots.push({ date: dateStr, time: time }); }
+              saveLocal();
+        }
 
-            container.style.display = 'block';
-            label.textContent = formatSwedishDate(dateStr);
-            list.innerHTML = '';
+        function getSlotsForDate(date) {
+              const day = date.getDay();
+              if (day === 0 || day === 6) return ['10:00'];
+              return ['08:00', '13:00'];
+        }
 
-            const slots = getSlotsForDate(date);
+        function formatDateStr(d) {
+              return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        }
 
-            slots.forEach(time => {
-                    const item = document.createElement('div');
-                    item.className = 'admin-slot-item';
+        function formatSwedishDate(dateStr) {
+              const d = new Date(dateStr + 'T00:00:00');
+              return DAY_NAMES[d.getDay()] + ' ' + d.getDate() + ' ' + MONTH_NAMES[d.getMonth()] + ' ' + d.getFullYear();
+        }
 
-                    const timeLabel = document.createElement('span');
-                    timeLabel.className = 'admin-slot-time';
-                    timeLabel.textContent = time;
+        function renderCalendar() {
+              const daysEl = document.getElementById('admin-cal-days');
+              const labelEl = document.getElementById('admin-cal-month-label');
+              labelEl.textContent = MONTH_NAMES[currentMonth] + ' ' + currentYear;
+              daysEl.innerHTML = '';
 
-                    const statusBtn = document.createElement('button');
-                    statusBtn.type = 'button';
+              const firstDay = new Date(currentYear, currentMonth, 1);
+              let startDay = firstDay.getDay();
+              startDay = startDay === 0 ? 6 : startDay - 1;
+              const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-                    if (isBlocked(dateStr, time)) {
-                              statusBtn.className = 'admin-slot-status admin-slot-status--blocked';
-                              statusBtn.textContent = 'Blockerad - Klicka for att oppna';
-                    } else {
-                              statusBtn.className = 'admin-slot-status admin-slot-status--open';
-                              statusBtn.textContent = 'Ledig - Klicka for att blockera';
-                    }
+              for (let i = 0; i < startDay; i++) {
+                      const empty = document.createElement('span');
+                      empty.className = 'cal-day cal-day--empty';
+                      daysEl.appendChild(empty);
+              }
 
-                    statusBtn.addEventListener('click', () => {
-                              toggleSlot(dateStr, time);
-                              renderCalendar();
-                              showAdminSlots(dateStr, date);
-                    });
+              for (let d = 1; d <= daysInMonth; d++) {
+                      const date = new Date(currentYear, currentMonth, d);
+                      date.setHours(0,0,0,0);
+                      const dateStr = formatDateStr(date);
+                      const el = document.createElement('button');
+                      el.type = 'button';
+                      el.className = 'cal-day';
+                      el.textContent = d;
 
-                    item.appendChild(timeLabel);
-                    item.appendChild(statusBtn);
-                    list.appendChild(item);
-            });
-      }
+                      const slots = getSlotsForDate(date);
+                      const allBlocked = slots.every(t => isBlocked(dateStr, t));
+                      const someBlocked = slots.some(t => isBlocked(dateStr, t));
+                      if (allBlocked) el.style.background = '#ffebee';
+                      else if (someBlocked) el.style.background = '#fff3e0';
+                      if (selectedDate === dateStr) el.classList.add('cal-day--selected');
 
-      function updateJsonOutput() {
-            // Sortera och rensa gamla datum
-            const sorted = blockedSlots
-              .filter(s => s.date >= formatDateStr(today))
-              .sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
-            document.getElementById('admin-json-output').value = JSON.stringify(sorted, null, 2);
-      }
+                      el.addEventListener('click', () => {
+                                selectedDate = dateStr;
+                                renderCalendar();
+                                showAdminSlots(dateStr, date);
+                      });
+                      daysEl.appendChild(el);
+              }
+        }
 
-      // Kopiera JSON
-      document.getElementById('copy-json-btn').addEventListener('click', () => {
-            const textarea = document.getElementById('admin-json-output');
-            textarea.select();
-            document.execCommand('copy');
-            const btn = document.getElementById('copy-json-btn');
-            btn.textContent = 'Kopierat!';
-            setTimeout(() => { btn.textContent = 'Kopiera JSON'; }, 2000);
-      });
+        function showAdminSlots(dateStr, date) {
+              const container = document.getElementById('admin-slots');
+              const label = document.getElementById('admin-date-label');
+              const list  = document.getElementById('admin-slot-list');
+              container.style.display = 'block';
+              label.textContent = formatSwedishDate(dateStr);
+              list.innerHTML = '';
 
-      // Rensa alla
-      document.getElementById('clear-all-btn').addEventListener('click', () => {
-            if (confirm('Vill du verkligen rensa alla blockeringar?')) {
-                    blockedSlots = [];
-                    saveBlocked();
-                    renderCalendar();
-                    document.getElementById('admin-slots').style.display = 'none';
-            }
-      });
+              const slots = getSlotsForDate(date);
+              slots.forEach(time => {
+                      const item = document.createElement('div');
+                      item.className = 'admin-slot-item';
 
-      // Navigering
-      document.getElementById('admin-cal-prev').addEventListener('click', () => {
-            currentMonth--;
-            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-            renderCalendar();
-      });
+                      const timeLabel = document.createElement('span');
+                      timeLabel.className = 'admin-slot-time';
+                      timeLabel.textContent = time;
 
-      document.getElementById('admin-cal-next').addEventListener('click', () => {
-            currentMonth++;
-            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-            renderCalendar();
-      });
+                      const statusBtn = document.createElement('button');
+                      statusBtn.type = 'button';
+                      if (isBlocked(dateStr, time)) {
+                                statusBtn.className = 'admin-slot-status admin-slot-status--blocked';
+                                statusBtn.textContent = 'Blockerad – Klicka för att öppna';
+                      } else {
+                                statusBtn.className = 'admin-slot-status admin-slot-status--open';
+                                statusBtn.textContent = 'Ledig – Klicka för att blockera';
+                      }
+                      statusBtn.addEventListener('click', () => {
+                                toggleSlot(dateStr, time);
+                                renderCalendar();
+                                showAdminSlots(dateStr, date);
+                      });
 
-      loadBlocked();
-      renderCalendar();
-      updateJsonOutput();
-  })();
-</script>
-</body>
+                      item.appendChild(timeLabel);
+                      item.appendChild(statusBtn);
+                      list.appendChild(item);
+              });
+        }
+
+        function updateJsonOutput() {
+              const sorted = blockedSlots
+                .filter(s => s.date >= formatDateStr(today))
+                .sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
+              document.getElementById('admin-json-output').value = JSON.stringify(sorted, null, 2);
+        }
+
+        // ── Event-lyssnare ──
+        document.getElementById('save-publish-btn').addEventListener('click', saveToGitHub);
+
+        document.getElementById('clear-all-btn').addEventListener('click', () => {
+              if (confirm('Vill du verkligen rensa alla blockeringar?')) {
+                      blockedSlots = [];
+                      saveLocal();
+                      renderCalendar();
+                      document.getElementById('admin-slots').style.display = 'none';
+              }
+        });
+
+        document.getElementById('admin-cal-prev').addEventListener('click', () => {
+              currentMonth--;
+              if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+              renderCalendar();
+        });
+
+        document.getElementById('admin-cal-next').addEventListener('click', () => {
+              currentMonth++;
+              if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+              renderCalendar();
+        });
+
+        // ── Starta ──
+        loadFromGitHub();
+    })();
+  </script>
+  </body>
 </html>html>
-</script></p></span></span></code></strong></p></h1>
-</body></title>
-  </head>
+  </script></span></span></strong></strong></p></p></h1>
+  </body>
+        </style></title>
+    </head>
