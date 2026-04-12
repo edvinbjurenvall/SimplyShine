@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Admin – Hantera Bokningar | SimplyShine</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+
+  <header class="header">
+      <a href="index.html" class="logo" aria-label="SimplyShine startsida">
+            <span class="logo-simply">Simply</span>span><span class="logo-shine">Shine</span>span>
+      </a>a>
+      <nav class="nav">
+            <a href="boka.html" class="nav-link">Boka-sidan</a>a>
+            <a href="admin.html" class="nav-link nav-link--cta active">Admin</a>a>
+      </nav>nav>
+  </header>header>
+
+  <div class="admin-container">
+      <div class="admin-header">
+            <h1>Hantera Bokningar</h1>
+          <p>Klicka pa en dag i kalendern, sedan blockera eller oppna tider.</p>
+      </div>div>
+  
+    <div class="admin-info">
+        <strong>Sa har fungerar det:</strong><br>
+        1. Valj ett datum i kalendern nedan.<br>
+        2. Klicka pa "Ledig" for att blockera en tid, eller "Blockerad" for att oppna den igen.<br>
+        3. Nar du ar klar, kopiera JSON-texten langst ner och uppdatera filen <code>blocked-slots.json</code> i ditt GitHub-repo.
+    </div>div>
+  
+    <div class="admin-calendar">
+        <div class="cal-header">
+              <button type="button" class="cal-nav" id="admin-cal-prev">&larr;</button>button>
+              <span class="cal-month" id="admin-cal-month-label"></span>span>
+              <button type="button" class="cal-nav" id="admin-cal-next">&rarr;</button>button>
+        </div>div>
+        <div class="cal-weekdays">
+              <span>Man</span><span>Tis</span><span>Ons</span><span>Tor</span><span>Fre</span><span>Lor</span><span>Son</span>
+        </div>div>
+        <div class="cal-days" id="admin-cal-days"></div>div>
+    
+        <div id="admin-slots" class="admin-slots" style="display:none;">
+              <p class="admin-date-label" id="admin-date-label"></p>
+              <div id="admin-slot-list"></div>div>
+        </div>div>
+    </div>div>
+  
+    <div class="admin-export-section">
+        <h3>Exportera blockerade tider</h3>
+        <p>Kopiera texten nedan och ersatt innehallet i <code>blocked-slots.json</code> i ditt GitHub-repo (simplyshine-site/blocked-slots.json). Deploya sedan till Netlify.</p>
+        <textarea id="admin-json-output" class="admin-json-output" readonly></textarea>
+        <div class="admin-btn-row">
+              <button type="button" class="btn btn--primary" id="copy-json-btn">Kopiera JSON</button>button>
+              <button type="button" class="btn btn--secondary" id="clear-all-btn">Rensa alla blockeringar</button>button>
+        </div>div>
+    </div>div>
+  </div>div>
+
+<script>
+  (function() {
+      const MONTH_NAMES = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
+      const DAY_NAMES = ['Sondag','Mandag','Tisdag','Onsdag','Torsdag','Fredag','Lordag'];
+
+      const STORAGE_KEY = 'simplyshine_blocked_slots';
+
+      let currentMonth, currentYear;
+      let selectedDate = null;
+      let blockedSlots = [];
+
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      currentMonth = today.getMonth();
+      currentYear = today.getFullYear();
+
+      // Ladda fran localStorage
+      function loadBlocked() {
+            try {
+                    const saved = localStorage.getItem(STORAGE_KEY);
+                    if (saved) blockedSlots = JSON.parse(saved);
+            } catch(e) { blockedSlots = []; }
+      }
+
+      function saveBlocked() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(blockedSlots));
+            updateJsonOutput();
+      }
+
+      function isBlocked(dateStr, time) {
+            return blockedSlots.some(s => s.date === dateStr && s.time === time);
+      }
+
+      function toggleSlot(dateStr, time) {
+            const idx = blockedSlots.findIndex(s => s.date === dateStr && s.time === time);
+            if (idx >= 0) {
+                    blockedSlots.splice(idx, 1);
+            } else {
+                    blockedSlots.push({ date: dateStr, time: time });
+            }
+            saveBlocked();
+      }
+
+      function getSlotsForDate(date) {
+            const day = date.getDay();
+            if (day === 0 || day === 6) return ['10:00'];
+            return ['08:00', '13:00'];
+      }
+
+      function formatDateStr(d) {
+            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+      }
+
+      function formatSwedishDate(dateStr) {
+            const d = new Date(dateStr + 'T00:00:00');
+            return DAY_NAMES[d.getDay()] + ' ' + d.getDate() + ' ' + MONTH_NAMES[d.getMonth()] + ' ' + d.getFullYear();
+      }
+
+      function renderCalendar() {
+            const daysEl = document.getElementById('admin-cal-days');
+            const labelEl = document.getElementById('admin-cal-month-label');
+            labelEl.textContent = MONTH_NAMES[currentMonth] + ' ' + currentYear;
+            daysEl.innerHTML = '';
+
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            let startDay = firstDay.getDay();
+            startDay = startDay === 0 ? 6 : startDay - 1;
+
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (let i = 0; i < startDay; i++) {
+                    const empty = document.createElement('span');
+                    empty.className = 'cal-day cal-day--empty';
+                    daysEl.appendChild(empty);
+            }
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                    const date = new Date(currentYear, currentMonth, d);
+                    date.setHours(0,0,0,0);
+                    const dateStr = formatDateStr(date);
+                    const el = document.createElement('button');
+                    el.type = 'button';
+                    el.className = 'cal-day';
+                    el.textContent = d;
+
+                    // Markera om alla slots ar blockerade
+                    const slots = getSlotsForDate(date);
+                    const allBlocked = slots.every(t => isBlocked(dateStr, t));
+                    const someBlocked = slots.some(t => isBlocked(dateStr, t));
+                    if (allBlocked) el.style.background = '#ffebee';
+                    else if (someBlocked) el.style.background = '#fff3e0';
+
+                    if (selectedDate === dateStr) el.classList.add('cal-day--selected');
+
+                    el.addEventListener('click', () => {
+                              selectedDate = dateStr;
+                              renderCalendar();
+                              showAdminSlots(dateStr, date);
+                    });
+
+                    daysEl.appendChild(el);
+            }
+      }
+
+      function showAdminSlots(dateStr, date) {
+            const container = document.getElementById('admin-slots');
+            const label = document.getElementById('admin-date-label');
+            const list = document.getElementById('admin-slot-list');
+
+            container.style.display = 'block';
+            label.textContent = formatSwedishDate(dateStr);
+            list.innerHTML = '';
+
+            const slots = getSlotsForDate(date);
+
+            slots.forEach(time => {
+                    const item = document.createElement('div');
+                    item.className = 'admin-slot-item';
+
+                    const timeLabel = document.createElement('span');
+                    timeLabel.className = 'admin-slot-time';
+                    timeLabel.textContent = time;
+
+                    const statusBtn = document.createElement('button');
+                    statusBtn.type = 'button';
+
+                    if (isBlocked(dateStr, time)) {
+                              statusBtn.className = 'admin-slot-status admin-slot-status--blocked';
+                              statusBtn.textContent = 'Blockerad - Klicka for att oppna';
+                    } else {
+                              statusBtn.className = 'admin-slot-status admin-slot-status--open';
+                              statusBtn.textContent = 'Ledig - Klicka for att blockera';
+                    }
+
+                    statusBtn.addEventListener('click', () => {
+                              toggleSlot(dateStr, time);
+                              renderCalendar();
+                              showAdminSlots(dateStr, date);
+                    });
+
+                    item.appendChild(timeLabel);
+                    item.appendChild(statusBtn);
+                    list.appendChild(item);
+            });
+      }
+
+      function updateJsonOutput() {
+            // Sortera och rensa gamla datum
+            const sorted = blockedSlots
+              .filter(s => s.date >= formatDateStr(today))
+              .sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
+            document.getElementById('admin-json-output').value = JSON.stringify(sorted, null, 2);
+      }
+
+      // Kopiera JSON
+      document.getElementById('copy-json-btn').addEventListener('click', () => {
+            const textarea = document.getElementById('admin-json-output');
+            textarea.select();
+            document.execCommand('copy');
+            const btn = document.getElementById('copy-json-btn');
+            btn.textContent = 'Kopierat!';
+            setTimeout(() => { btn.textContent = 'Kopiera JSON'; }, 2000);
+      });
+
+      // Rensa alla
+      document.getElementById('clear-all-btn').addEventListener('click', () => {
+            if (confirm('Vill du verkligen rensa alla blockeringar?')) {
+                    blockedSlots = [];
+                    saveBlocked();
+                    renderCalendar();
+                    document.getElementById('admin-slots').style.display = 'none';
+            }
+      });
+
+      // Navigering
+      document.getElementById('admin-cal-prev').addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+            renderCalendar();
+      });
+
+      document.getElementById('admin-cal-next').addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+            renderCalendar();
+      });
+
+      loadBlocked();
+      renderCalendar();
+      updateJsonOutput();
+  })();
+</script>
+</body>
+</html>html>
+</script></p></span></span></code></strong></p></h1>
+</body></title>
+  </head>
