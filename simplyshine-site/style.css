@@ -694,8 +694,12 @@ img {
     font-size: 14px;
     color: var(--text-light);
     line-height: 1.7;
-    flex: 1;
+    flex: 0 0 auto;
     margin-bottom: 24px;
+}
+
+.package-card .btn {
+    margin-top: auto;
 }
 
 /* ═══════════════════════════════════════════
