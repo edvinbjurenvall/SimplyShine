@@ -2202,4 +2202,6 @@ img {
   letter-spacing: 0.02em;
   position: relative;
   z-index: 1001;
+  display: block;
+  text-decoration: none;
 }
