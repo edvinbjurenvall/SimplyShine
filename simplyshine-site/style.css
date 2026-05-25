@@ -1065,6 +1065,7 @@ img {
 
 .package-detail {
   margin-bottom: 60px;
+  position: relative;
 }
 
 .package-detail h2 {
@@ -2145,4 +2146,60 @@ img {
      .admin-btn-row {
             flex-direction: column;
      }
+}
+
+/* ═══════════════════════════════════════════
+   Rabattpriser & Kampanjelement
+═══════════════════════════════════════════ */
+
+/* Ordinarie pris med genomstrykning */
+.price-original {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #9ca3af;
+  text-decoration: line-through;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Rabatterat pris */
+.price-discounted {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 42px;
+  color: var(--dark);
+  display: block;
+}
+
+/* Rabattbadge – övre högra hörnet av kortet */
+.discount-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #22c55e;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+/* Kampanjbanner */
+.promo-banner {
+  width: 100%;
+  background: #22c55e;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1001;
 }
