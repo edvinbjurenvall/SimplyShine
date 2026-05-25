@@ -4,19 +4,22 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17941835180"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-17941835180')
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17941835180')
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekond Göteborg – Mobil Bilvård | SimplyShine</title>
-    <meta name="description" content="Professionell bilrekond i Göteborg – vi kommer till dig. Boka enkelt online. Resultat du ser direkt.">
+    <meta name="description" content="Professionell bilrekond i Göteborg – vi kommer till dig. 20% rabatt på alla paket just nu! Boka enkelt online.">
     <link rel="canonical" href="https://simplyshine.se/boka.html">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- KAMPANJBANNER -->
+<div class="promo-banner">🎉 20% RABATT på alla paket just nu! Gäller ej medlemskap.</div>
 
 <!-- HEADER -->
 <header class="header">
@@ -56,8 +59,6 @@
     </div>
 </section>
 
-
-
 <!-- 2. TRUST BAR -->
 <section class="section trust-bar">
     <div class="container">
@@ -83,14 +84,17 @@
     <div class="container" style="max-width: 900px;">
         <div class="section-title">
             <h2>Välj Ditt Paket</h2>
+            <p style="color:#15803d; font-weight:600;">🎉 20% rabatt på Care och Rekond just nu!</p>
         </div>
         <div class="grid-2">
             <div class="package-card fade-up">
+                <span class="discount-badge">20% RABATT</span>
                 <h3>SimplyShine Care</h3>
-                <div class="package-price">2 499 kr</div>
-                <p class="package-description">Professionell bilvård. En handutförd rekonditionering utförd hos dig. Vi kommer till dig, tar hand om varje detalj och lämnar bilen i ett skick som en automatisk tvätt aldrig kan matcha.
-
-</p>
+                <div class="package-price">
+                    <span class="price-original">2 499 kr</span>
+                    <span class="price-discounted">1 999 kr</span>
+                </div>
+                <p class="package-description">Professionell bilvård. En handutförd rekonditionering utförd hos dig. Vi kommer till dig, tar hand om varje detalj och lämnar bilen i ett skick som en automatisk tvätt aldrig kan matcha. </p>
                 <div style="margin: 20px 0; text-align: left;">
                     <div class="checklist-item"><span class="checklist-icon">✓</span><span>Komplett utvändig tvätt</span></div>
                     <div class="checklist-item"><span class="checklist-icon">✓</span><span>Däckglans</span></div>
@@ -104,9 +108,14 @@
                 <p style="margin-bottom: 16px; color: #6b7280; font-size: 0.95rem;"><strong>Tid:</strong> Ca 2–2,5 timmar</p>
                 <a href="#bokningsformular" class="btn btn--primary btn--full">Boka Detta Paket</a>
             </div>
+
             <div class="package-card fade-up fade-up-d1">
+                <span class="discount-badge">20% RABATT</span>
                 <h3>SimplyShine Full Detail</h3>
-                <div class="package-price">4 499 kr</div>
+                <div class="package-price">
+                    <span class="price-original">4 499 kr</span>
+                    <span class="price-discounted">3 599 kr</span>
+                </div>
                 <p class="package-description">Djupgående rekonditionering — för bilen som förtjänar mer. Vissa saker syns inte vid första anblick — men vi ser dem. Rekond går djupare än en vanlig bilvård och tar hand om det som byggts upp över tid. Asfaltsfläckar, flygrost och inbyggt smuts behandlas metodiskt tills resultatet talar för sig självt.</p>
                 <div style="margin: 20px 0; text-align: left;">
                     <div class="checklist-item"><span class="checklist-icon">✓</span><span>Komplett utvändig tvätt</span></div>
@@ -134,6 +143,7 @@
                 <h3>SimplyShine Membership</h3>
                 <div class="package-price">1 999 kr/mån</div>
                 <p class="package-description">Alltid en skinande ren bil. Som medlem får du SimplyShine Care utförd en gång i månaden — vi bokar in oss, du gör ingenting. Ingår: 1x SimplyShine Care per månad + prioriterad bokning.</p>
+                <p style="margin-bottom: 16px; color:#6b7280; font-size: 0.9rem;"><em>Notera: 20%-rabatten gäller ej medlemskapet.</em></p>
                 <a href="kontakt.html" class="btn btn--primary btn--full">Skicka Kontaktförfrågan</a>
             </div>
         </div>
@@ -144,6 +154,7 @@
             <p style="margin: 0 0 16px 0; color: #4b5563;">Skicka en kontaktförfrågan så ringer vi upp dig.</p>
             <a href="kontakt.html" class="btn btn--secondary">Kontakta Oss</a>
         </div>
+
     </div>
 </section>
 
@@ -154,6 +165,7 @@
             <h2>Boka Din Bilvård – Vi Kommer Till Dig</h2>
             <p>Välj datum och tid i kalendern nedan</p>
         </div>
+
         <div class="form-wrapper fade-up">
             <form id="booking-form">
                 <div class="form-group">
@@ -180,10 +192,11 @@
                     <label class="form-label">Välj Paket <span class="required">*</span></label>
                     <select name="paket" class="form-select" required>
                         <option value="">Välj...</option>
-                        <option value="SimplyShine Care (2 499 kr)">SimplyShine Care – 2 499 kr</option>
-                        <option value="SimplyShine Rekond (4 499 kr)">SimplyShine Full Detail – 4 499 kr</option>
+                        <option value="SimplyShine Care – Ord. 2 499 kr → 1 999 kr (-20%)">SimplyShine Care – 2 499 kr → 1 999 kr (-20%)</option>
+                        <option value="SimplyShine Full Detail – Ord. 4 499 kr → 3 599 kr (-20%)">SimplyShine Full Detail – 4 499 kr → 3 599 kr (-20%)</option>
                     </select>
-                    <p style="margin-top: 8px; font-size: 0.9rem; color: #6b7280;">Osäker på vilket paket du ska välja? <a href="kontakt.html" style="color: #2563eb; text-decoration: underline;">Skicka en kontaktförfrågan så ringer vi upp dig.</a></p>
+                    <p style="margin-top: 8px; font-size: 0.9rem; color: #15803d; font-weight:600;">🎉 20% rabatt redan inräknat i priserna ovan.</p>
+                    <p style="margin-top: 4px; font-size: 0.9rem; color: #6b7280;">Osäker på vilket paket du ska välja? <a href="kontakt.html" style="color: #2563eb; text-decoration: underline;">Skicka en kontaktförfrågan så ringer vi upp dig.</a></p>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Tilläggstjänster</label>
@@ -237,6 +250,7 @@
                         </label>
                     </div>
                 </div>
+
                 <!-- KALENDER -->
                 <div class="form-group">
                     <label class="form-label">Välj Datum &amp; Tid <span class="required">*</span></label>
@@ -263,17 +277,21 @@
                         <button type="button" id="clear-datetime" class="clear-datetime">&times;</button>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="form-label">Meddelande</label>
                     <textarea name="meddelande" class="form-textarea" placeholder="Något speciellt vi bör veta?"></textarea>
                 </div>
+
                 <button type="submit" class="form-submit">Boka Tid</button>
             </form>
+
             <div class="form-success" style="display: none;">
                 <div class="icon">✅</div>
                 <h2>Tack för din bokning!</h2>
                 <p>Du har bokat <strong id="confirm-datetime"></strong>. Vi återkommer med en bekräftelse.</p>
             </div>
+
             <p class="form-note">
                 Vi bekräftar din bokning via e-post.<br>
                 Betalning sker med Swish på plats när jobbet är klart.
@@ -281,6 +299,7 @@
         </div>
     </div>
 </section>
+
 <!-- 5. RECENSIONER -->
 <section class="section section--white">
     <div class="container" style="max-width: 900px;">
@@ -316,6 +335,7 @@
         </div>
     </div>
 </section>
+
 </main>
 
 <!-- FOOTER -->
@@ -343,235 +363,231 @@
 
 <script src="script.js"></script>
 <script>
-const MAKE_WEBHOOK = "https://hook.eu1.make.com/jrwx2iw09w0ji981viprgabgrvtu2oyr";
+    const MAKE_WEBHOOK = "https://hook.eu1.make.com/jrwx2iw09w0ji981viprgabgrvtu2oyr";
 
-/* ── Kalender-logik ── */
-(function() {
-    const MONTH_NAMES = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
-    const DAY_NAMES = ['Söndag','Måndag','Tisdag','Onsdag','Torsdag','Fredag','Lördag'];
-    let currentMonth, currentYear;
-    let selectedDate = null;
-    let selectedTime = null;
-    let blockedSlots = [];
+    /* ── Kalender-logik ── */
+    (function() {
+        const MONTH_NAMES = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
+        const DAY_NAMES = ['Söndag','Måndag','Tisdag','Onsdag','Torsdag','Fredag','Lördag'];
 
-    const today = new Date();
-    today.setHours(0,0,0,0);
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const maxDate = new Date(today);
-    maxDate.setMonth(maxDate.getMonth() + 1);
+        let currentMonth, currentYear;
+        let selectedDate = null;
+        let selectedTime = null;
+        let blockedSlots = [];
 
-    currentMonth = today.getMonth();
-    currentYear = today.getFullYear();
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const maxDate = new Date(today);
+        maxDate.setMonth(maxDate.getMonth() + 1);
 
-    // Ladda blockerade tider från JSON-fil
-    fetch('blocked-slots.json?' + Date.now())
-        .then(r => r.json())
-        .then(data => {
-            blockedSlots = data || [];
-            renderCalendar();
-        })
-        .catch(() => {
-            blockedSlots = [];
-            renderCalendar();
-        });
+        currentMonth = today.getMonth();
+        currentYear = today.getFullYear();
 
-    function isBlocked(dateStr, time) {
-        return blockedSlots.some(s => s.date === dateStr && s.time === time);
-    }
+        // Ladda blockerade tider från JSON-fil
+        fetch('blocked-slots.json?' + Date.now())
+            .then(r => r.json())
+            .then(data => {
+                blockedSlots = data || [];
+                renderCalendar();
+            })
+            .catch(() => {
+                blockedSlots = [];
+                renderCalendar();
+            });
 
-    function getSlotsForDate(date) {
-        const day = date.getDay(); // 0=sön, 6=lör
-        if (day === 0 || day === 6) return ['10:00'];
-        return ['08:00', '13:00'];
-    }
-
-    function formatDateStr(d) {
-        return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-    }
-
-    function formatSwedishDate(dateStr) {
-        const d = new Date(dateStr + 'T00:00:00');
-        return DAY_NAMES[d.getDay()] + ' ' + d.getDate() + ' ' + MONTH_NAMES[d.getMonth()];
-    }
-
-    function renderCalendar() {
-        const daysEl = document.getElementById('cal-days');
-        const labelEl = document.getElementById('cal-month-label');
-        labelEl.textContent = MONTH_NAMES[currentMonth] + ' ' + currentYear;
-        daysEl.innerHTML = '';
-
-        const firstDay = new Date(currentYear, currentMonth, 1);
-        let startDay = firstDay.getDay(); // 0=sön
-        startDay = startDay === 0 ? 6 : startDay - 1; // konvertera till mån=0
-        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-        // Tomma celler före
-        for (let i = 0; i < startDay; i++) {
-            const empty = document.createElement('span');
-            empty.className = 'cal-day cal-day--empty';
-            daysEl.appendChild(empty);
+        function isBlocked(dateStr, time) {
+            return blockedSlots.some(s => s.date === dateStr && s.time === time);
         }
 
-        for (let d = 1; d <= daysInMonth; d++) {
-            const date = new Date(currentYear, currentMonth, d);
-            date.setHours(0,0,0,0);
-            const dateStr = formatDateStr(date);
-            const el = document.createElement('button');
-            el.type = 'button';
-            el.className = 'cal-day';
-            el.textContent = d;
+        function getSlotsForDate(date) {
+            const day = date.getDay(); // 0=sön, 6=lör
+            if (day === 0 || day === 6) return ['10:00'];
+            return ['08:00', '13:00'];
+        }
 
-            const isPast = date < tomorrow;
-            const isTooFar = date > maxDate;
+        function formatDateStr(d) {
+            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        }
+
+        function formatSwedishDate(dateStr) {
+            const d = new Date(dateStr + 'T00:00:00');
+            return DAY_NAMES[d.getDay()] + ' ' + d.getDate() + ' ' + MONTH_NAMES[d.getMonth()];
+        }
+
+        function renderCalendar() {
+            const daysEl = document.getElementById('cal-days');
+            const labelEl = document.getElementById('cal-month-label');
+            labelEl.textContent = MONTH_NAMES[currentMonth] + ' ' + currentYear;
+            daysEl.innerHTML = '';
+
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            let startDay = firstDay.getDay(); // 0=sön
+            startDay = startDay === 0 ? 6 : startDay - 1; // konvertera till mån=0
+
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Tomma celler före
+            for (let i = 0; i < startDay; i++) {
+                const empty = document.createElement('span');
+                empty.className = 'cal-day cal-day--empty';
+                daysEl.appendChild(empty);
+            }
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                const date = new Date(currentYear, currentMonth, d);
+                date.setHours(0,0,0,0);
+                const dateStr = formatDateStr(date);
+                const el = document.createElement('button');
+                el.type = 'button';
+                el.className = 'cal-day';
+                el.textContent = d;
+
+                const isPast = date < tomorrow;
+                const isTooFar = date > maxDate;
+                const slots = getSlotsForDate(date);
+                const allBlocked = slots.every(t => isBlocked(dateStr, t));
+
+                if (isPast || isTooFar || allBlocked) {
+                    el.classList.add('cal-day--disabled');
+                    el.disabled = true;
+                } else {
+                    el.addEventListener('click', () => selectDate(dateStr, date));
+                    if (selectedDate === dateStr) el.classList.add('cal-day--selected');
+                }
+                daysEl.appendChild(el);
+            }
+        }
+
+        function selectDate(dateStr, date) {
+            selectedDate = dateStr;
+            selectedTime = null;
+            document.getElementById('booking-date').value = dateStr;
+            document.getElementById('booking-time').value = '';
+            document.getElementById('selected-datetime').style.display = 'none';
+            renderCalendar();
+            showTimeSlots(dateStr, date);
+        }
+
+        function showTimeSlots(dateStr, date) {
+            const container = document.getElementById('time-slots');
+            const buttonsEl = document.getElementById('time-buttons');
+            const dateLabel = document.getElementById('selected-date-label');
+            container.style.display = 'block';
+            dateLabel.textContent = formatSwedishDate(dateStr);
+            buttonsEl.innerHTML = '';
+
             const slots = getSlotsForDate(date);
-            const allBlocked = slots.every(t => isBlocked(dateStr, t));
+            let hasAvailable = false;
+            slots.forEach(time => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'time-btn';
+                btn.textContent = time;
+                if (isBlocked(dateStr, time)) {
+                    btn.classList.add('time-btn--disabled');
+                    btn.disabled = true;
+                    btn.textContent = time + ' – Upptagen';
+                } else {
+                    hasAvailable = true;
+                    btn.addEventListener('click', () => selectTime(dateStr, time));
+                }
+                buttonsEl.appendChild(btn);
+            });
 
-            if (isPast || isTooFar || allBlocked) {
-                el.classList.add('cal-day--disabled');
-                el.disabled = true;
-            } else {
-                el.addEventListener('click', () => selectDate(dateStr, date));
-                if (selectedDate === dateStr) el.classList.add('cal-day--selected');
+            if (!hasAvailable) {
+                const msg = document.createElement('p');
+                msg.className = 'no-slots-msg';
+                msg.textContent = 'Inga lediga tider detta datum.';
+                buttonsEl.appendChild(msg);
             }
-
-            daysEl.appendChild(el);
         }
-    }
 
-    function selectDate(dateStr, date) {
-        selectedDate = dateStr;
-        selectedTime = null;
-        document.getElementById('booking-date').value = dateStr;
-        document.getElementById('booking-time').value = '';
-        document.getElementById('selected-datetime').style.display = 'none';
-        renderCalendar();
-        showTimeSlots(dateStr, date);
-    }
-
-    function showTimeSlots(dateStr, date) {
-        const container = document.getElementById('time-slots');
-        const buttonsEl = document.getElementById('time-buttons');
-        const dateLabel = document.getElementById('selected-date-label');
-
-        container.style.display = 'block';
-        dateLabel.textContent = formatSwedishDate(dateStr);
-        buttonsEl.innerHTML = '';
-
-        const slots = getSlotsForDate(date);
-        let hasAvailable = false;
-
-        slots.forEach(time => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'time-btn';
-            btn.textContent = time;
-
-            if (isBlocked(dateStr, time)) {
-                btn.classList.add('time-btn--disabled');
-                btn.disabled = true;
-                btn.textContent = time + ' – Upptagen';
-            } else {
-                hasAvailable = true;
-                btn.addEventListener('click', () => selectTime(dateStr, time));
-            }
-
-            buttonsEl.appendChild(btn);
-        });
-
-        if (!hasAvailable) {
-            const msg = document.createElement('p');
-            msg.className = 'no-slots-msg';
-            msg.textContent = 'Inga lediga tider detta datum.';
-            buttonsEl.appendChild(msg);
+        function selectTime(dateStr, time) {
+            selectedTime = time;
+            document.getElementById('booking-time').value = time;
+            // Markera vald tid
+            document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('time-btn--selected'));
+            document.querySelectorAll('.time-btn').forEach(b => {
+                if (b.textContent === time) b.classList.add('time-btn--selected');
+            });
+            // Visa vald tid
+            const display = document.getElementById('selected-datetime');
+            const text = document.getElementById('selected-datetime-text');
+            display.style.display = 'flex';
+            text.textContent = formatSwedishDate(dateStr) + ' kl. ' + time;
         }
-    }
 
-    function selectTime(dateStr, time) {
-        selectedTime = time;
-        document.getElementById('booking-time').value = time;
-
-        // Markera vald tid
-        document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('time-btn--selected'));
-        document.querySelectorAll('.time-btn').forEach(b => {
-            if (b.textContent === time) b.classList.add('time-btn--selected');
+        // Rensa vald tid
+        document.getElementById('clear-datetime').addEventListener('click', () => {
+            selectedDate = null;
+            selectedTime = null;
+            document.getElementById('booking-date').value = '';
+            document.getElementById('booking-time').value = '';
+            document.getElementById('selected-datetime').style.display = 'none';
+            document.getElementById('time-slots').style.display = 'none';
+            renderCalendar();
         });
 
-        // Visa vald tid
-        const display = document.getElementById('selected-datetime');
-        const text = document.getElementById('selected-datetime-text');
-        display.style.display = 'flex';
-        text.textContent = formatSwedishDate(dateStr) + ' kl. ' + time;
-    }
-
-    // Rensa vald tid
-    document.getElementById('clear-datetime').addEventListener('click', () => {
-        selectedDate = null;
-        selectedTime = null;
-        document.getElementById('booking-date').value = '';
-        document.getElementById('booking-time').value = '';
-        document.getElementById('selected-datetime').style.display = 'none';
-        document.getElementById('time-slots').style.display = 'none';
-        renderCalendar();
-    });
-
-    // Navigering
-    document.getElementById('cal-prev').addEventListener('click', () => {
-        currentMonth--;
-        if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-        renderCalendar();
-    });
-
-    document.getElementById('cal-next').addEventListener('click', () => {
-        currentMonth++;
-        if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-        renderCalendar();
-    });
-
-    renderCalendar();
-})();
-
-/* ── Formulär-submit ── */
-document.getElementById("booking-form").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const form = e.target;
-
-    // Validera att datum och tid är valda
-    if (!document.getElementById('booking-date').value || !document.getElementById('booking-time').value) {
-        alert('Vänligen välj ett datum och en tid i kalendern.');
-        return;
-    }
-
-    const data = Object.fromEntries(new FormData(form));
-    const tillagg = Array.from(form.querySelectorAll('input[name="tillagg"]:checked')).map(cb => cb.value);
-    data.tillagg = tillagg.join(', ');
-
-    const submitBtn = form.querySelector('.form-submit');
-    submitBtn.textContent = 'Skickar...';
-    submitBtn.disabled = true;
-
-    try {
-        await fetch(MAKE_WEBHOOK, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
+        // Navigering
+        document.getElementById('cal-prev').addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+            renderCalendar();
         });
-        document.getElementById('confirm-datetime').textContent = data.datum + ' kl. ' + data.tid;
-        form.style.display = "none";
-        document.querySelector(".form-success").style.display = "block";
-
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17941835180/q0WdCPjRov8bEKzbqutC',
-            'value': 1.0,
-            'currency': 'SEK'
+        document.getElementById('cal-next').addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+            renderCalendar();
         });
-    } catch (err) {
-        alert("Något gick fel. Försök igen eller kontakta oss på info@simplyshine.se");
-    }
 
-    submitBtn.textContent = 'Boka Tid';
-    submitBtn.disabled = false;
-});
+        renderCalendar();
+    })();
+
+    /* ── Formulär-submit ── */
+    document.getElementById("booking-form").addEventListener("submit", async function(e) {
+        e.preventDefault();
+        const form = e.target;
+
+        // Validera att datum och tid är valda
+        if (!document.getElementById('booking-date').value || !document.getElementById('booking-time').value) {
+            alert('Vänligen välj ett datum och en tid i kalendern.');
+            return;
+        }
+
+        const data = Object.fromEntries(new FormData(form));
+        const tillagg = Array.from(form.querySelectorAll('input[name="tillagg"]:checked')).map(cb => cb.value);
+        data.tillagg = tillagg.join(', ');
+
+        const submitBtn = form.querySelector('.form-submit');
+        submitBtn.textContent = 'Skickar...';
+        submitBtn.disabled = true;
+
+        try {
+            await fetch(MAKE_WEBHOOK, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            document.getElementById('confirm-datetime').textContent = data.datum + ' kl. ' + data.tid;
+            form.style.display = "none";
+            document.querySelector(".form-success").style.display = "block";
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17941835180/q0WdCPjRov8bEKzbqutC',
+                'value': 1.0,
+                'currency': 'SEK'
+            });
+        } catch (err) {
+            alert("Något gick fel. Försök igen eller kontakta oss på info@simplyshine.se");
+        }
+
+        submitBtn.textContent = 'Boka Tid';
+        submitBtn.disabled = false;
+    });
 </script>
+
 </body>
 </html>
