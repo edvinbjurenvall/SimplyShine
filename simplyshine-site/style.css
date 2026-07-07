@@ -2205,3 +2205,84 @@ img {
   display: block;
   text-decoration: none;
 }
+
+
+/* ===== SOMMARERBJUDANDE / SUMMER CAMPAIGN ===== */
+.summer-campaign {
+  padding: 40px 0;
+}
+.summer-banner {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-gradient));
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+.summer-tag {
+  display: inline-block;
+  background: var(--dark);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+}
+.summer-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+.summer-text,
+.summer-areas,
+.summer-valid {
+  color: var(--text);
+  max-width: 640px;
+  margin: 0 auto 12px;
+  line-height: 1.6;
+}
+.summer-valid {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+.summer-banner .btn {
+  margin-top: 8px;
+}
+
+/* ===== SALE / RABATTPRIS ===== */
+.package-price--sale {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+}
+.package-price--sale .price-old {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+.package-price--sale .price-new {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--primary);
+}
+.package-price--sale .price-badge {
+  display: inline-block;
+  background: var(--dark);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  align-self: center;
+}
