@@ -1,0 +1,15 @@
+{
+  "name": "SimplyShine",
+  "short_name": "SimplyShine",
+  "description": "Premium mobil bilvård och rekond i Göteborg",
+  "lang": "sv-SE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#7DD3E8",
+  "icons": [
+    { "src": "/images/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/images/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
