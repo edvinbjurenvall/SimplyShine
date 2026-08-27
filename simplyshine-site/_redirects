@@ -1,6 +1,29 @@
-# Clean URL redirects
+# Rena URL:er (rewrite, inte redirect)
 /tjanster      /tjanster.html      200
 /sa-funkar-det /sa-funkar-det.html 200
 /om-oss        /om-oss.html        200
 /boka          /boka.html          200
 /kontakt       /kontakt.html       200
+
+# Tjanste-, omrades- och guidesidor
+/bilrekond-goteborg                /bilrekond-goteborg.html              200
+/invandig-rekond-goteborg          /invandig-rekond-goteborg.html        200
+/helrekond-goteborg                /helrekond-goteborg.html              200
+/biltvatt-goteborg                 /biltvatt-goteborg.html               200
+/foretagsbilvard-goteborg          /foretagsbilvard-goteborg.html        200
+/rekond-leasingbil-goteborg        /rekond-leasingbil-goteborg.html      200
+/bilvard-molndal                   /bilvard-molndal.html                 200
+/bilvard-partille                  /bilvard-partille.html                200
+/bilvard-hisingen                  /bilvard-hisingen.html                200
+/bilvard-askim-hovas               /bilvard-askim-hovas.html             200
+/bilvard-kungsbacka                /bilvard-kungsbacka.html              200
+/bilvard-lerum                     /bilvard-lerum.html                   200
+/bilvard-kungalv                   /bilvard-kungalv.html                 200
+/guider                            /guider.html                          200
+/guider/vad-kostar-rekond          /guider-vad-kostar-rekond.html        200
+/guider/rekond-eller-biltvatt      /guider-rekond-eller-biltvatt.html    200
+/guider/hur-ofta-rekond            /guider-hur-ofta-rekond.html          200
+
+# Gamla sokvagar
+/rekond    /bilrekond-goteborg   301
+/priser    /tjanster             301

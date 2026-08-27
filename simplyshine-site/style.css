@@ -2205,3 +2205,147 @@ img {
   display: block;
   text-decoration: none;
 }
+
+/* =====================================================
+   SEO-tillägg: brödsmulor, artikeltext, områdeskort
+   ===================================================== */
+
+.breadcrumbs {
+  background: #F8F9FA;
+  border-bottom: 1px solid #E9ECEF;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.breadcrumbs a {
+  color: #5a6b7c;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover { color: var(--primary); text-decoration: underline; }
+
+.breadcrumbs span[aria-current] { color: #98a4b0; }
+
+.breadcrumb-sep { color: #c2cad2; margin: 0 2px; }
+
+.gallery-item picture { display: block; }
+
+/* Artikel-/landningssidetext */
+.prose {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.prose p { margin-bottom: 18px; }
+
+.prose h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px;
+  color: var(--primary);
+  margin: 42px 0 16px;
+  line-height: 1.3;
+}
+
+.prose h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: var(--primary);
+  margin: 30px 0 10px;
+}
+
+.prose ul, .prose ol { margin: 0 0 20px 22px; }
+.prose li { margin-bottom: 9px; }
+.prose a { color: var(--primary); font-weight: 600; }
+
+.prose table, .prose-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 26px;
+  font-size: 16px;
+}
+
+.prose th, .prose td,
+.prose-table-wrap th, .prose-table-wrap td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid #E9ECEF;
+}
+
+.prose th, .prose-table-wrap th {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  background: #F8F9FA;
+}
+
+.prose-table-wrap { overflow-x: auto; margin: 8px 0 26px; }
+.prose-table-wrap table { font-family: 'DM Sans', sans-serif; }
+.prose-table-wrap td:first-child { white-space: nowrap; }
+
+.key-facts {
+  background: #F8F9FA;
+  border: 1px solid #E0E0E0;
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin: 26px 0;
+}
+
+.key-facts p { margin-bottom: 10px; }
+.key-facts p:last-child { margin-bottom: 0; }
+
+/* Områdes- och tjänstelänkar */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.link-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.link-card strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.link-card span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+  .prose { font-size: 16px; }
+  .prose h2 { font-size: 23px; }
+}
+
+/* Fyra kolumner i sidfoten */
+.footer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  max-width: 1180px;
+  gap: 34px;
+}
+
+.prose-table-wrap td:last-child { white-space: nowrap; }
