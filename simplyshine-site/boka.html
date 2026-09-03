@@ -338,6 +338,13 @@
                     <textarea name="meddelande" class="form-textarea" placeholder="Något speciellt vi bör veta?"></textarea>
                 </div>
 
+                <div class="form-group">
+                    <label class="form-label">Rabattkod</label>
+                    <input type="text" name="rabattkod" id="rabattkod" class="form-input" placeholder="Har du en rabattkod? Ange den här" autocomplete="off">
+                    <p id="rabattkod-feedback" style="display:none; margin-top:6px; font-size:0.95rem; font-weight:600;"></p>
+                    <input type="hidden" name="rabatt" id="rabatt-value">
+                </div>
+
                 <button type="submit" class="form-submit">Boka Tid</button>
             </form>
 
@@ -622,6 +629,48 @@
         renderCalendar();
     })();
 
+    /* ── Rabattkoder ── */
+    // Lägg till nya koder här: "KOD": { procent: 20 }
+    const RABATTKODER = {
+        "WTC20":        { procent: 20 },
+        "PARTILLEGK20": { procent: 20 }
+    };
+
+    (function () {
+        const input    = document.getElementById('rabattkod');
+        const feedback = document.getElementById('rabattkod-feedback');
+        const hidden   = document.getElementById('rabatt-value');
+        if (!input) return;
+
+        function kollaKod() {
+            const kod = input.value.trim().toUpperCase();
+
+            if (!kod) {
+                feedback.style.display = 'none';
+                input.style.borderColor = '';
+                hidden.value = '';
+                return;
+            }
+
+            const traff = RABATTKODER[kod];
+            if (traff) {
+                feedback.textContent   = '✓ Rabattkoden är giltig – ' + traff.procent + '% rabatt på din bokning.';
+                feedback.style.color   = '#15803d';
+                input.style.borderColor = '#15803d';
+                hidden.value = traff.procent;
+            } else {
+                feedback.textContent   = '✕ Ogiltig rabattkod.';
+                feedback.style.color   = '#b91c1c';
+                input.style.borderColor = '#b91c1c';
+                hidden.value = '';
+            }
+            feedback.style.display = 'block';
+        }
+
+        input.addEventListener('input', kollaKod);
+        input.addEventListener('blur',  kollaKod);
+    })();
+
     /* ── Formulär-submit ── */
     document.getElementById("booking-form").addEventListener("submit", async function(e) {
         e.preventDefault();
@@ -636,6 +685,11 @@
         const data = Object.fromEntries(new FormData(form));
         const tillagg = Array.from(form.querySelectorAll('input[name="tillagg"]:checked')).map(cb => cb.value);
         data.tillagg = tillagg.join(', ');
+
+        // Rabattkod: skicka bara med om koden faktiskt är giltig
+        const rabattProcent = parseInt(document.getElementById('rabatt-value').value || '0', 10);
+        data.rabattkod = rabattProcent ? (data.rabattkod || '').trim().toUpperCase() : '';
+        data.rabatt    = rabattProcent ? rabattProcent + '%' : '';
 
         const submitBtn = form.querySelector('.form-submit');
         submitBtn.textContent = 'Skickar...';
@@ -654,7 +708,7 @@
 
             gtag('event', 'conversion', {
                 'send_to': 'AW-18409628541/XHAXCLfor-gcEP3GsspE',
-                'value': (function(){ var m = (data.paket || '').replace(/\s/g, '').match(/(\d+)kr/i); return m ? parseFloat(m[1]) : 2499; })(),
+                'value': (function(){ var m = (data.paket || '').replace(/\s/g, '').match(/(\d+)kr/i); var v = m ? parseFloat(m[1]) : 2499; return Math.round(v * (1 - rabattProcent / 100)); })(),
                 'currency': 'SEK'
             });
         } catch (err) {
