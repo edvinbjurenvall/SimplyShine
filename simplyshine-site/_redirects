@@ -1,4 +1,5 @@
 # Rena URL:er (rewrite, inte redirect)
+/hovas         /hovas.html         200
 /tjanster      /tjanster.html      200
 /sa-funkar-det /sa-funkar-det.html 200
 /om-oss        /om-oss.html        200
