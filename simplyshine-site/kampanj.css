@@ -5,3 +5,5 @@
 .booking-grid>*{min-width:0}.days,.weekdays{grid-template-columns:repeat(7,minmax(0,1fr))}.days button{min-width:0;padding:0;aspect-ratio:auto;height:44px}.booking h2 br:after{content:' '}
 @media(max-width:700px){.booking-grid{grid-template-columns:minmax(0,1fr)}.days button{height:40px}.booking h2 br{display:contents}.booking legend{max-width:100%}.submit{white-space:normal}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+.price-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 18px}.original-price{font-size:14px;font-weight:400;color:var(--muted);text-decoration-thickness:1px;text-decoration-color:currentColor;white-space:nowrap}

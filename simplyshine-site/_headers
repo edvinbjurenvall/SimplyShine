@@ -1,0 +1,7 @@
+# Campaign pages are accessed by direct link and excluded from search results.
+/hovas
+  X-Robots-Tag: noindex, follow
+/hovas.html
+  X-Robots-Tag: noindex, follow
+/hovas/
+  X-Robots-Tag: noindex, follow
