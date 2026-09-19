@@ -5,3 +5,10 @@
   X-Robots-Tag: noindex, follow
 /hovas/
   X-Robots-Tag: noindex, follow
+
+/saro
+  X-Robots-Tag: noindex, follow
+/saro.html
+  X-Robots-Tag: noindex, follow
+/saro/
+  X-Robots-Tag: noindex, follow
