@@ -1,3 +1,5 @@
+/saro-boka    /saro-boka.html    200
+/hovas-boka    /hovas-boka.html    200
 # Rena URL:er (rewrite, inte redirect)
 /hovas         /hovas.html         200
 /saro          /saro.html          200

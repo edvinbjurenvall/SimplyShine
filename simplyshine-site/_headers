@@ -12,3 +12,18 @@
   X-Robots-Tag: noindex, follow
 /saro/
   X-Robots-Tag: noindex, follow
+
+/hovas-boka
+  X-Robots-Tag: noindex, follow
+/hovas-boka.html
+  X-Robots-Tag: noindex, follow
+
+/saro-boka
+  X-Robots-Tag: noindex, follow
+/saro-boka.html
+  X-Robots-Tag: noindex, follow
+
+/hovas-boka/
+  X-Robots-Tag: noindex, follow
+/saro-boka/
+  X-Robots-Tag: noindex, follow

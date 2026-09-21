@@ -137,6 +137,7 @@ const CampaignBooking = (() => {
           signal: AbortSignal.timeout(20000)
         });
         if (!response.ok) throw new Error('rejected');
+        window.CampaignLead?.clear();
         form.hidden = true; el('success').hidden = false;
         el('success-time').textContent = `Din valda tid: ${dayText.format(parse(selectedDate))} kl. ${selectedTime}.`;
         el('success').focus();
@@ -149,7 +150,7 @@ const CampaignBooking = (() => {
         sending = false; submit.disabled = false; submit.textContent = 'Boka min tid – 2 495 kr ↗';
       }
     });
-    if ('IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window && document.querySelector('.mobile-book')) {
       const sticky = document.querySelector('.mobile-book');
       new IntersectionObserver(entries => sticky.classList.toggle('is-hidden', entries[0].isIntersecting), { threshold: 0 }).observe(el('boka'));
     }
