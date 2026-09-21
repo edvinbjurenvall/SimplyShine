@@ -47,35 +47,45 @@ function initMobileMenu() {
 
 /* ─── FAQ Accordion ─── */
 function initFaqAccordion() {
-  document.querySelectorAll('.faq-question').forEach(btn => {
+  const buttons = document.querySelectorAll('.faq-question');
+  buttons.forEach((btn, index) => {
+    const item = btn.closest('.faq-item');
+    const answer = item && item.querySelector('.faq-answer');
+    if (!answer) return;
+    answer.id = answer.id || `faq-answer-${index + 1}`;
+    btn.setAttribute('aria-controls', answer.id);
+    btn.setAttribute('aria-expanded', String(item.classList.contains('open')));
     btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
       const wasOpen = item.classList.contains('open');
-
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-
-      // Toggle clicked
-      if (!wasOpen) item.classList.add('open');
+      buttons.forEach(other => {
+        other.closest('.faq-item')?.classList.remove('open');
+        other.setAttribute('aria-expanded', 'false');
+      });
+      item.classList.toggle('open', !wasOpen);
+      btn.setAttribute('aria-expanded', String(!wasOpen));
     });
+    item.classList.add('faq-ready');
   });
 }
 
-/* ─── Scroll animations (IntersectionObserver) ─── */
+/* Content is visible first; animate only off-screen elements after setup. */
 function initScrollAnimations() {
-  const elements = document.querySelectorAll('.fade-up');
-  if (!elements.length) return;
-
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.remove('is-pending');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
-
-  elements.forEach(el => observer.observe(el));
+  }, { threshold: 0 });
+  document.querySelectorAll('.fade-up').forEach(el => {
+    if (el.getBoundingClientRect().top >= window.innerHeight) {
+      observer.observe(el);
+      el.classList.add('is-pending');
+    }
+  });
 }
 
 /* ─── Formspree form handling ─── */
