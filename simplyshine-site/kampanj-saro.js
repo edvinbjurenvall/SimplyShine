@@ -130,6 +130,7 @@ const CampaignBooking = (() => {
           clearSelection(); renderCalendar(); renderTimes();
           message('Den valda tiden är inte längre tillgänglig. Välj en annan tid.'); return;
         }
+        if (window.CampaignDeadline && !window.CampaignDeadline.isOpen()) { message('Erbjudandet har avslutats. Ring oss för aktuella alternativ.'); return; }
         submit.textContent = 'Skickar bokning…';
         const response = await fetch(endpoint, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -137,11 +138,13 @@ const CampaignBooking = (() => {
           signal: AbortSignal.timeout(20000)
         });
         if (!response.ok) throw new Error('rejected');
+        const receipt = await response.json();
+        if (receipt.ok !== true) throw new Error('unconfirmed');
         window.CampaignLead?.clear();
         form.hidden = true; el('success').hidden = false;
         el('success-time').textContent = `Din valda tid: ${dayText.format(parse(selectedDate))} kl. ${selectedTime}.`;
         el('success').focus();
-        // Local event only. No advertising pixel or cookies are loaded here.
+        // Track only after the automation confirms receipt; consent is checked by the pixel module.
         document.dispatchEvent(new CustomEvent('campaign:booking-sent', { detail: { campaign: 'saro-valkomstpaket', value: 2495, currency: 'SEK' } }));
       } catch (error) {
         message(error.message === 'availability' ? 'Tiderna kunde inte kontrolleras. Försök igen om en stund eller ring 073-060 43 03.' : 'Vi kunde inte bekräfta att bokningen kom fram. Ring 073-060 43 03 innan du skickar igen, så undviker vi en dubbelbokning.');

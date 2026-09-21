@@ -31,15 +31,18 @@ const CampaignLead = (() => {
       }
       return;
     }
-    const form = document.getElementById('campaign-lead'); if (!form) return;
-    const status = document.getElementById('lead-status');
+    const forms = document.querySelectorAll('.lead-form, #campaign-lead'); if (!forms.length) return;
+    let sending = false;
+    let id = read()?.id || crypto.randomUUID();
+    for (const form of forms) {
+    const status = form.querySelector('[role=alert]');
+    status.tabIndex = -1;
     const submit = form.querySelector('[type=submit]');
     const params = new URLSearchParams(location.search);
     const preview = !['simplyshine.se', 'www.simplyshine.se'].includes(location.hostname);
-    let sending = false;
-    let id = read()?.id || crypto.randomUUID();
     form.addEventListener('submit', async event => {
       event.preventDefault(); if (sending || !form.reportValidity()) return;
+      if (window.CampaignDeadline && !window.CampaignDeadline.isOpen()) { status.textContent = 'Erbjudandet har avslutats.'; return; }
       const values = Object.fromEntries(new FormData(form));
       if (['namn', 'telefon', 'email'].some(name => !values[name]?.trim())) { status.textContent = 'Fyll i namn, mobilnummer och mejladress.'; status.focus(); return; }
       sending = true; submit.disabled = true; submit.textContent = 'Hämtar erbjudandet…'; status.textContent = '';
@@ -54,6 +57,7 @@ const CampaignLead = (() => {
           const receipt = await response.json();
           if (receipt.ok !== true) throw new Error('delivery');
         }
+        document.dispatchEvent(new CustomEvent('campaign:lead-sent', { detail: { campaign: `${area}-valkomstpaket`, eventId: id, preview } }));
         save({ values, id, campaign: area, createdAt: Date.now(), submitted: true, preview });
         const next = new URL(`/${area}-boka`, location.origin);
         for (const name of attribution) if (params.has(name)) next.searchParams.set(name, params.get(name).slice(0, 200));
@@ -63,6 +67,7 @@ const CampaignLead = (() => {
         status.focus();
       } finally { sending = false; submit.disabled = false; submit.textContent = 'Hämta erbjudandet nu ↗'; }
     });
+    }
     if ('IntersectionObserver' in window) {
       const sticky = document.querySelector('.mobile-book');
       if (sticky) new IntersectionObserver(entries => sticky.classList.toggle('is-hidden', entries[0].isIntersecting)).observe(document.getElementById('hamta'));
