@@ -1,0 +1,18 @@
+/* Campaign deadline: fixed for every visitor, with no flashing or animation. */
+.deadline-hero{padding:22px 0;background:#203744;border-bottom:3px solid #d3b77c;text-align:left}
+.deadline-hero-inner{display:flex;justify-content:space-between;align-items:center;gap:28px}
+.deadline-message{min-width:0}.deadline-kicker{display:flex;align-items:center;gap:8px;color:#ecd6a7;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+.deadline-kicker svg,.deadline-emphasis>strong svg{height:19px;width:19px;flex-shrink:0}
+.deadline-hero .deadline-message>strong{display:block;color:#fff;font-size:19px;line-height:1.4;letter-spacing:-.02em}
+.deadline-message p{font-size:12px;color:#d4e2e7;margin-top:5px}.deadline-message p b{font-weight:600;color:#fff}
+.countdown-digits{display:flex;align-items:start;justify-content:center;gap:10px;font-variant-numeric:tabular-nums;flex-shrink:0}
+.countdown-digits>span{display:flex;flex-direction:column;align-items:center;min-width:63px}
+.countdown-digits b{display:grid;place-items:center;min-width:63px;padding:4px 9px;border:1px solid #ffffff30;border-radius:7px;background:#ffffff0b;color:#fff;font-size:32px;font-weight:700;line-height:1.2}
+.countdown-digits small{font-size:10px;margin-top:5px;color:#d4e2e7}.countdown-digits i{font-style:normal;font-size:25px;line-height:1.6;color:#d3b77c}
+.deadline-emphasis{background:#fff9ed;border:1px solid #d8bf91;border-left:3px solid #b7914d;padding:14px;margin:0 0 17px}
+.deadline-emphasis>strong{display:flex;align-items:center;justify-content:center;gap:7px;color:#61461f;font-size:13px}
+.deadline-emphasis .countdown-digits{margin:10px 0;gap:8px}.deadline-emphasis .countdown-digits>span{min-width:54px}.deadline-emphasis .countdown-digits b{font-size:25px;min-width:54px;color:#233a4b;background:#fff;border-color:#e8d6b6}.deadline-emphasis .countdown-digits small{color:#705a35;font-size:9px}.deadline-emphasis .countdown-digits i{color:#967845;font-size:21px}
+.deadline-emphasis .deadline-fine{font-size:11px;line-height:1.5;text-align:center;color:#614f33}.deadline-fine b{font-weight:700}
+.closing-countdown{font-size:19px;font-weight:700;color:#17647a;font-variant-numeric:tabular-nums}
+.sticky-offer [data-urgency-short]{color:#75551f;font-weight:700}
+@media(max-width:700px){.deadline-hero{padding:16px 0}.deadline-hero-inner{display:block;text-align:center}.deadline-kicker{justify-content:center;font-size:10px;letter-spacing:.1em}.deadline-hero .deadline-message>strong{font-size:17px;max-width:330px;margin:auto}.deadline-message p{font-size:11px}.deadline-hero .countdown-digits{margin-top:13px}.deadline-hero .countdown-digits b{font-size:28px;min-width:61px;padding:4px 8px}.deadline-hero .countdown-digits small{font-size:9px;margin-top:3px}.deadline-hero .countdown-digits i{font-size:24px}.hero{padding-top:24px}.sticky-offer{gap:10px}.sticky-offer .button{padding-inline:19px}.deadline-emphasis{padding:12px}.form-divider strong{font-size:14px}}

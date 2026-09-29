@@ -10,4 +10,4 @@ for(const button of document.querySelectorAll('[data-view]'))button.addEventList
  for(const panel of document.querySelectorAll('[data-result]'))panel.hidden=panel.dataset.result!==button.dataset.view;
 });
 const sticky=document.querySelector('.sticky-offer');
-if('IntersectionObserver' in window){new IntersectionObserver(entries=>sticky.classList.toggle('is-hidden',entries[0].isIntersecting),{threshold:0.12}).observe(document.getElementById('erbjudande'));}
+if('IntersectionObserver' in window){new IntersectionObserver(entries=>sticky.classList.toggle('is-hidden',entries[0].isIntersecting),{threshold:0.5}).observe(document.querySelector('.offer-card .lead-form button[type=submit]'));}
