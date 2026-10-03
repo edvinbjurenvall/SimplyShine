@@ -12,7 +12,7 @@
     <meta name="description" content="Mobil bilvård och rekond i Göteborg. Vi kommer hem till dig och handtvättar bilen där den står – du behöver inte vara hemma. Priser från 1 499 kr. Boka online.">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
     <link rel="canonical" href="https://simplyshine.se/">
-    <meta name="theme-color" content="#2C3E50">
+    <meta name="theme-color" content="#0F1E33">
     <meta name="geo.region" content="SE-O">
     <meta name="geo.placename" content="Göteborg">
 
@@ -32,7 +32,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Montserrat:wght@600;800&amp;display=swap">
     <link rel="stylesheet" href="/style.css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18409628541"></script>
@@ -75,15 +75,6 @@
     "@type": "GeoCoordinates",
     "latitude": 57.7089,
     "longitude": 11.9746
-  },
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 57.7089,
-      "longitude": 11.9746
-    },
-    "geoRadius": "35000"
   },
   "areaServed": [
     {
@@ -219,12 +210,14 @@
     ]
   },
   "sameAs": [
+    "https://maps.google.com/?cid=1169395813539161227",
     "https://www.instagram.com/simplyshine_sverige/",
     "https://www.facebook.com/61587424060188",
     "https://www.tiktok.com/@simplyshine8",
     "https://www.youtube.com/@SimplyShine.s"
   ],
-  "logo": "https://simplyshine.se/images/favicon-512.png"
+  "logo": "https://simplyshine.se/images/favicon-512.png",
+  "hasMap": "https://maps.google.com/?cid=1169395813539161227"
 }
 </script>
 <script type="application/ld+json">
@@ -247,60 +240,236 @@
         <span class="logo-simply">Simply</span><span class="logo-shine">Shine</span>
     </a>
     <nav class="nav" aria-label="Huvudnavigation">
-        <a href="/" class="nav-link active">Hem</a>
+        <a href="/" class="nav-link active" aria-current="page">Hem</a>
         <a href="/tjanster" class="nav-link">Tjänster</a>
-        <a href="/sa-funkar-det" class="nav-link">Så Funkar Det</a>
-        <a href="/om-oss" class="nav-link">Om Oss</a>
-        <a href="/boka" class="nav-link nav-link--cta">Boka</a>
+        <a href="/sa-funkar-det" class="nav-link">Så funkar det</a>
+        <a href="/om-oss" class="nav-link">Om oss</a>
+        <a href="/boka" class="nav-link nav-link--cta">Boka tid</a>
         <a href="/kontakt" class="nav-link">Kontakt</a>
     </nav>
     <button class="hamburger" aria-label="Öppna meny"><span></span><span></span><span></span></button>
 </header>
 
 <div class="mobile-menu" aria-label="Mobilnavigation">
-    <a href="/" class="active">Hem</a>
+    <a href="/" class="active" aria-current="page">Hem</a>
     <a href="/tjanster">Tjänster</a>
-    <a href="/sa-funkar-det">Så Funkar Det</a>
-    <a href="/om-oss">Om Oss</a>
-    <a href="/boka">Boka</a>
+    <a href="/sa-funkar-det">Så funkar det</a>
+    <a href="/om-oss">Om oss</a>
+    <a href="/boka">Boka tid</a>
     <a href="/kontakt">Kontakt</a>
 </div>
 <main>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero hero--home">
     <div class="hero-content">
-        <div class="hero-badge">🚐 Mobil Bilvård i Göteborg</div>
-        <h1>Premium Mobil Bilvård<br><span>i Göteborg</span></h1>
-        <h2>Vi Kommer Hem Till Dig</h2>
-        <p>Handutförd bilvård på din uppfart. Du lämnar nyckeln och fortsätter med din dag – vi tar hand om resten.</p>
+        <h1>Premium mobil bilvård i Göteborg</h1>
+        <p class="hero-lead">Vi handtvättar och rekonditionerar bilen där den står – på uppfarten, utanför huset eller vid jobbet. Du behöver inte vara hemma.</p>
+        <p class="hero-price"><strong>Från 1 499 kr</strong> Du betalar med Swish när jobbet är klart.</p>
         <div class="hero-buttons">
-            <a href="/boka" class="btn btn--primary btn--lg">Välj Tid Online</a>
-            <a href="#sa-funkar-det" class="btn btn--secondary btn--lg">Så Funkar Det</a>
+            <a href="/boka" class="btn btn--primary btn--lg">Boka tid</a>
+            <a href="#paket" class="btn btn--secondary btn--lg">Se paket och priser</a>
+        </div>
+        <a class="hero-rating" href="https://maps.google.com/?cid=1169395813539161227" target="_blank" rel="noopener">
+            <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span>
+            <span><strong>5,0</strong> i betyg på Google</span>
+        </a>
+    </div>
+    <figure class="hero-media">
+        <picture><source type="image/webp" srcset="/images/under-tvatt-540.webp 540w, /images/under-tvatt.webp 1080w" sizes="(max-width: 860px) 100vw, 48vw"><img src="/images/under-tvatt-540.jpg" srcset="/images/under-tvatt-540.jpg 540w, /images/under-tvatt.jpg 1080w" sizes="(max-width: 860px) 100vw, 48vw" width="1080" height="1350" alt="Svart bil täckt av skum under handtvätt, på en uppsamlingsmatta som fångar upp vattnet" fetchpriority="high" decoding="async"></picture>
+    </figure>
+</section>
+
+<!-- FÖRTROENDE -->
+<section class="trust-bar" aria-label="Därför väljer kunder SimplyShine">
+    <div class="trust-items">
+        <div class="trust-item">
+            <span class="trust-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 20 3"/><path d="m16 7 3 3"/><path d="m14 9 2 2"/></svg></span>
+            <span class="trust-text">Du behöver inte vara hemma<small>Lämna nyckeln – vi hör av oss</small></span>
+        </div>
+        <div class="trust-item">
+            <span class="trust-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <span class="trust-text">Hela Göteborgsområdet<small>Från Kungälv till Kungsbacka</small></span>
+        </div>
+        <div class="trust-item">
+            <span class="trust-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16c2.2 0 2.2-1.6 4.5-1.6S9.8 16 12 16s2.2-1.6 4.5-1.6S18.8 16 21 16"/><path d="M3 20c2.2 0 2.2-1.6 4.5-1.6S9.8 20 12 20s2.2-1.6 4.5-1.6S18.8 20 21 20"/><path d="M12 3s-3 3.3-3 5.4a3 3 0 0 0 6 0C15 6.3 12 3 12 3z"/></svg></span>
+            <span class="trust-text">Handtvätt utan borstar<small>Allt spillvatten tas om hand</small></span>
+        </div>
+        <div class="trust-item">
+            <span class="trust-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.8 7 22l5-3 5 3-1.5-8.2"/></svg></span>
+            <span class="trust-text">6 år i fordonsbranschen<small>Som tekniker och servicechef</small></span>
         </div>
     </div>
 </section>
 
-<!-- TRUST BAR -->
-<section class="trust-bar">
+<!-- PAKET -->
+<section id="paket" class="section section--white">
     <div class="container">
-        <div class="trust-items">
-            <div class="trust-item">
-                <span class="trust-icon">🔑</span>
-                <span class="trust-text">Du behöver inte vara hemma</span>
+        <div class="section-title">
+            <h2>Välj paket</h2>
+            <p>Fasta priser och ingen avgift för framkörning inom Göteborgsområdet. Tillägg som sätesrengöring och lädervård väljer du när du bokar.</p>
+        </div>
+        <div class="package-grid">
+            <article class="package-card">
+                <h3>Exteriör</h3>
+                <p class="package-kicker">Utvändig rekond</p>
+                <p class="package-price">1 499 <small>kr</small></p>
+                <p class="package-time">Ca 1–1,5 timmar</p>
+                <ul class="package-includes">
+                    <li>Komplett utvändig handtvätt</li>
+                    <li>Fälgrengöring och däckglans</li>
+                    <li>Vax som skyddar lacken upp till 1 månad</li>
+                    <li>Dörrkarmar och fönster utvändigt</li>
+                </ul>
+                <div class="package-actions">
+                    <a href="/boka?paket=exterior" class="btn btn--primary">Boka Exteriör</a>
+                    <a href="/tjanster#exterior" class="text-link">Se vad som ingår</a>
+                </div>
+            </article>
+            <article class="package-card package-card--featured">
+                <span class="package-badge">Populärast</span>
+                <h3>SimplyShine Care</h3>
+                <p class="package-kicker">In- och utvändig rekond</p>
+                <p class="package-price">2 499 <small>kr</small></p>
+                <p class="package-time">Ca 2–2,5 timmar</p>
+                <ul class="package-includes">
+                    <li>Komplett utvändig tvätt med däckglans och vax</li>
+                    <li>Professionell dammsugning och golvmattor</li>
+                    <li>Paneler och vinyl avtorkas</li>
+                    <li>Fönster och dörrkarmar</li>
+                </ul>
+                <div class="package-actions">
+                    <a href="/boka?paket=care" class="btn btn--primary">Boka Care</a>
+                    <a href="/tjanster#care" class="text-link">Se vad som ingår</a>
+                </div>
+            </article>
+            <article class="package-card">
+                <h3>SimplyShine Full Detail</h3>
+                <p class="package-kicker">Helrekond in- och utvändigt</p>
+                <p class="package-price">4 499 <small>kr</small></p>
+                <p class="package-time">Ca 4–5 timmar</p>
+                <ul class="package-includes">
+                    <li>Asfaltsfläckar och flygrost tas bort</li>
+                    <li>Vax som håller upp till 6 månader</li>
+                    <li>Motortvätt</li>
+                    <li>Pedaler, ventilationsgaller och skarvar i kupén</li>
+                </ul>
+                <div class="package-actions">
+                    <a href="/boka?paket=full-detail" class="btn btn--primary">Boka Full Detail</a>
+                    <a href="/tjanster#full-detail" class="text-link">Se vad som ingår</a>
+                </div>
+            </article>
+        </div>
+        <div class="membership">
+            <div>
+                <h3>SimplyShine Membership</h3>
+                <p>En SimplyShine Care varje månad – vi bokar in oss och du gör ingenting. Prioriterad bokning ingår.</p>
             </div>
-            <div class="trust-item">
-                <span class="trust-icon">🚐</span>
-                <span class="trust-text">Hela Göteborg</span>
+            <div class="membership-cta">
+                <p class="membership-price"><strong>1 999 kr</strong> per månad</p>
+                <p class="membership-save">500 kr mindre än styckpris</p>
+                <a href="/kontakt?amne=Medlemskap" class="btn btn--accent">Starta medlemskap</a>
             </div>
-            <div class="trust-item">
-                <span class="trust-icon">⭐</span>
-                <span class="trust-text">6 års erfarenhet</span>
+        </div>
+        <div class="section-foot">
+            <a href="/tjanster" class="text-link">Se alla priser och tillägg</a>
+        </div>
+    </div>
+</section>
+
+<!-- OMDÖMEN -->
+<section class="section section--gray">
+    <div class="container">
+        <div class="reviews-head">
+            <div class="section-title">
+                <h2>Vad kunderna säger</h2>
+                <p>Omdömen från vår profil på Google.</p>
             </div>
-            <div class="trust-item">
-                <span class="trust-icon">💳</span>
-                <span class="trust-text">Swish på plats</span>
+            <div class="google-score">
+                <span class="score">5,0</span>
+                <div>
+                    <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span>
+                    <span><a href="https://maps.google.com/?cid=1169395813539161227" target="_blank" rel="noopener">Läs alla omdömen på Google</a></span>
+                </div>
             </div>
+        </div>
+        <div class="grid-3">
+            <figure class="review-card">
+                <div class="review-stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+                <blockquote class="review-text">”Vi kontaktade SimplyShine för att få tvättat våra företagsbilar. Superenkelt att boka och smidig process. De kom ut till vårt kontor och tvättade bilarna medans vi kunde fokusera på att jobba. Sen kunde vi åka iväg med skinande ren bil både utvändigt och invändigt. Starkt rekommendera!”</blockquote>
+                <figcaption class="review-author">Jonatan Wennberg<span>Företagsbilar vid kontoret</span></figcaption>
+            </figure>
+            <figure class="review-card">
+                <div class="review-stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+                <blockquote class="review-text">”Trevlig, kunnig, snabb. Jättefint resultat. Anpassade tvätt/städ/repor inför vad jag behövde fixa inför tillbakalämning av leasingbilen. Bilen som ny! Tack!”</blockquote>
+                <figcaption class="review-author">Elin Bengtsson<span>Inför leasingåterlämning</span></figcaption>
+            </figure>
+            <figure class="review-card">
+                <div class="review-stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+                <blockquote class="review-text">”Super smidigt, Edvin kom till firman och städade bilarna både inne och ute och tog dessutom hand om allt smutsvatten. Rekommenderar!”</blockquote>
+                <figcaption class="review-author">Karl<span>Företagsbilar, in- och utvändigt</span></figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<!-- SÅ GÅR DET TILL -->
+<section id="sa-funkar-det" class="section section--white">
+    <div class="container">
+        <div class="section-title">
+            <h2>Så går det till</h2>
+            <p>Från bokning till ren bil – utan att du behöver planera om dagen.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Välj tid online</h3>
+                <p>Välj paket, dag och tid i kalendern. Det tar ett par minuter.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Vi bekräftar</h3>
+                <p>Du får en bekräftelse via e-post, och vi hör av oss när vi är på väg.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Vi utför jobbet</h3>
+                <p>Vi tvättar bilen där den står, 1–5 timmar beroende på paket. Du behöver inte vara hemma.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Betala med Swish</h3>
+                <p>När jobbet är klart betalar du med Swish. Kvittot kommer via e-post.</p>
+            </div>
+        </div>
+        <div class="section-foot">
+            <a href="/sa-funkar-det" class="text-link">Läs mer och vanliga frågor</a>
+        </div>
+    </div>
+</section>
+
+<!-- FÖRE OCH EFTER -->
+<section class="section section--gray">
+    <div class="container">
+        <div class="section-title">
+            <h2>Före och efter</h2>
+            <p>Samma bil, samma dag – fotad före och efter en handtvätt hemma hos kunden.</p>
+        </div>
+        <div class="ba-grid">
+            <figure class="ba-pair">
+                <div class="ba-images">
+                    <figure><picture><source type="image/webp" srcset="/images/fore-1-540.webp 540w, /images/fore-1.webp 1080w" sizes="(max-width: 860px) 46vw, 270px"><img src="/images/fore-1-540.jpg" srcset="/images/fore-1-540.jpg 540w, /images/fore-1.jpg 1080w" sizes="(max-width: 860px) 46vw, 270px" width="1080" height="1350" alt="Smutsig svart bil bakifrån före tvätt, på uppsamlingsmatta" loading="lazy" decoding="async"></picture><figcaption class="ba-label">Före</figcaption></figure>
+                    <figure><picture><source type="image/webp" srcset="/images/efter-1-540.webp 540w, /images/efter-1.webp 1080w" sizes="(max-width: 860px) 46vw, 270px"><img src="/images/efter-1-540.jpg" srcset="/images/efter-1-540.jpg 540w, /images/efter-1.jpg 1080w" sizes="(max-width: 860px) 46vw, 270px" width="1080" height="1350" alt="Samma bil bakifrån efter tvätt, ren och blank" loading="lazy" decoding="async"></picture><figcaption class="ba-label">Efter</figcaption></figure>
+                </div>
+                <figcaption>Bakifrån: vägdamm och smuts före, blank lack efter.</figcaption>
+            </figure>
+            <figure class="ba-pair">
+                <div class="ba-images">
+                    <figure><picture><source type="image/webp" srcset="/images/fore-2-540.webp 540w, /images/fore-2.webp 1080w" sizes="(max-width: 860px) 46vw, 270px"><img src="/images/fore-2-540.jpg" srcset="/images/fore-2-540.jpg 540w, /images/fore-2.jpg 1080w" sizes="(max-width: 860px) 46vw, 270px" width="1080" height="1350" alt="Smutsig svart bil framifrån före tvätt" loading="lazy" decoding="async"></picture><figcaption class="ba-label">Före</figcaption></figure>
+                    <figure><picture><source type="image/webp" srcset="/images/efter-2-540.webp 540w, /images/efter-2.webp 1080w" sizes="(max-width: 860px) 46vw, 270px"><img src="/images/efter-2-540.jpg" srcset="/images/efter-2-540.jpg 540w, /images/efter-2.jpg 1080w" sizes="(max-width: 860px) 46vw, 270px" width="1080" height="1350" alt="Samma bil framifrån efter tvätt" loading="lazy" decoding="async"></picture><figcaption class="ba-label">Efter</figcaption></figure>
+                </div>
+                <figcaption>Framifrån: smutsfläckar på lack och fälgar före, ren och skyddad efter.</figcaption>
+            </figure>
         </div>
     </div>
 </section>
@@ -309,208 +478,66 @@
 <section class="section section--white">
     <div class="container">
         <div class="section-title">
-            <h2>Vad Är Mobil Bilvård?</h2>
-            <p>Professionell rekonditionering – utförd hemma hos dig</p>
+            <h2>Vad är mobil bilvård?</h2>
         </div>
-
-        <div class="container--narrow story-text fade-up" style="margin-bottom: 50px;">
+        <div class="story-text story-text--lead">
             <p>SimplyShine är bilvård som kommer till dig. Vi tar med oss all utrustning som behövs och utför en komplett handtvätt där bilen står – på din uppfart, utanför huset eller vid kontoret.</p>
             <p>Ingen kö till biltvätten och inga roterande borstar mot lacken. Bilen tvättas för hand, steg för steg, med samma metoder som används vid professionell rekonditionering. Bakom arbetet står sex års erfarenhet från fordonsbranschen.</p>
             <p>Under bilen ligger vår uppsamlingsmatta som fångar upp allt spillvatten. Vattnet transporteras sedan till en godkänd miljöstation med oljeavskiljare – inget smutsvatten når dagvattenbrunnarna.</p>
         </div>
-
         <div class="grid-3">
-            <div class="value-card fade-up">
-                <div class="icon">🔑</div>
-                <h3>Du Behöver Inte Vara Hemma</h3>
+            <div class="value-card">
+                <div class="icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 20 3"/><path d="m16 7 3 3"/><path d="m14 9 2 2"/></svg></div>
+                <h3>Du behöver inte vara hemma</h3>
                 <p>Lämna nyckeln där det passar dig. Vi hör av oss när vi är på plats och när bilen är klar – du behöver inte planera om din dag.</p>
             </div>
-            <div class="value-card fade-up fade-up-d1">
-                <div class="icon">✋</div>
-                <h3>Handtvätt – Inga Borstar</h3>
+            <div class="value-card">
+                <div class="icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s-6 6.4-6 10.6a6 6 0 0 0 12 0C18 9.4 12 3 12 3z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2.3"/></svg></div>
+                <h3>Handtvätt utan borstar</h3>
                 <p>Varje bil tvättas för hand. Resultatet blir ett skick som en automatisk tvätt aldrig kan matcha – utan risk för repor i lacken.</p>
             </div>
-            <div class="value-card fade-up fade-up-d2">
-                <div class="icon">♻️</div>
-                <h3>Vi Tar Hand Om Vattnet</h3>
+            <div class="value-card">
+                <div class="icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16c2.2 0 2.2-1.6 4.5-1.6S9.8 16 12 16s2.2-1.6 4.5-1.6S18.8 16 21 16"/><path d="M3 20c2.2 0 2.2-1.6 4.5-1.6S9.8 20 12 20s2.2-1.6 4.5-1.6S18.8 20 21 20"/><path d="M12 3s-3 3.3-3 5.4a3 3 0 0 0 6 0C15 6.3 12 3 12 3z"/></svg></div>
+                <h3>Vi tar hand om vattnet</h3>
                 <p>Uppsamlingsmatta under bilen fångar upp allt spillvatten, som körs till godkänd miljöstation med oljeavskiljare.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SÅ FUNKAR DET -->
-<section id="sa-funkar-det" class="section section--gray">
-    <div class="container">
-        <div class="section-title">
-            <h2>Så Funkar Det</h2>
-            <p>Fyra steg – från bokning till skinande ren bil</p>
-        </div>
-        <div class="steps-grid">
-            <div class="step fade-up">
-                <div class="step-number">1</div>
-                <div class="icon">📅</div>
-                <h3>Välj Tid Online</h3>
-                <p>Välj paket, datum och tid direkt i kalendern. Tar ett par minuter.</p>
-            </div>
-            <div class="step fade-up fade-up-d1">
-                <div class="step-number">2</div>
-                <div class="icon">✅</div>
-                <h3>Vi Bekräftar</h3>
-                <p>Du får en bekräftelse via e-post. Vi hör av oss när vi är på väg.</p>
-            </div>
-            <div class="step fade-up fade-up-d2">
-                <div class="step-number">3</div>
-                <div class="icon">🚐</div>
-                <h3>Vi Utför Jobbet</h3>
-                <p>Du behöver inte vara hemma. Vi tvättar bilen där den står – 1–5 timmar beroende på paket.</p>
-            </div>
-            <div class="step fade-up fade-up-d3">
-                <div class="step-number">4</div>
-                <div class="icon">💳</div>
-                <h3>Betala Med Swish</h3>
-                <p>När jobbet är klart betalar du med Swish på plats. Kvitto via e-post.</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 36px;">
-            <a href="/sa-funkar-det" class="btn btn--secondary">Läs Mer &amp; Vanliga Frågor</a>
-        </div>
-    </div>
-</section>
-
-<!-- BILDGALLERI -->
-<section class="section section--white">
-    <div class="container">
-        <div class="section-title">
-            <h2>Från Smutsig Till Skinande Ren</h2>
-            <p>Se hur en av våra tvättar ser ut – steg för steg</p>
-        </div>
-        <div class="gallery-grid fade-up">
-            <div class="gallery-item">
-                <picture><source type="image/webp" srcset="/images/fore-1-540.webp 540w, /images/fore-1.webp 1080w" sizes="(max-width: 700px) 92vw, 340px"><img src="/images/fore-1-540.jpg" srcset="/images/fore-1-540.jpg 540w, /images/fore-1.jpg 1080w" sizes="(max-width: 700px) 92vw, 340px" width="1080" height="1350" alt="Smutsig bil före tvätt – bakifrån" loading="eager" fetchpriority="high" decoding="async"></picture>
-                <p class="gallery-caption">Före: Bilen täckt av smuts och vägdamm. Vår uppsamlingsmatta är utlagd och fångar upp allt vatten.</p>
-            </div>
-            <div class="gallery-item">
-                <picture><source type="image/webp" srcset="/images/fore-2-540.webp 540w, /images/fore-2.webp 1080w" sizes="(max-width: 700px) 92vw, 340px"><img src="/images/fore-2-540.jpg" srcset="/images/fore-2-540.jpg 540w, /images/fore-2.jpg 1080w" sizes="(max-width: 700px) 92vw, 340px" width="1080" height="1350" alt="Smutsig bil före tvätt – framifrån" loading="lazy" decoding="async"></picture>
-                <p class="gallery-caption">Före: Tydliga smutsfläckar på lack och fälgar. Dags för en ordentlig tvätt.</p>
-            </div>
-            <div class="gallery-item">
-                <picture><source type="image/webp" srcset="/images/under-tvatt-540.webp 540w, /images/under-tvatt.webp 1080w" sizes="(max-width: 700px) 92vw, 340px"><img src="/images/under-tvatt-540.jpg" srcset="/images/under-tvatt-540.jpg 540w, /images/under-tvatt.jpg 1080w" sizes="(max-width: 700px) 92vw, 340px" width="1080" height="1350" alt="Bil under tvättens gång med skum" loading="lazy" decoding="async"></picture>
-                <p class="gallery-caption">Under tvätten: Bilen skummas in ordentligt. Allt vatten fångas upp av mattan och sugs genast upp.</p>
-            </div>
-            <div class="gallery-item">
-                <picture><source type="image/webp" srcset="/images/efter-1-540.webp 540w, /images/efter-1.webp 1080w" sizes="(max-width: 700px) 92vw, 340px"><img src="/images/efter-1-540.jpg" srcset="/images/efter-1-540.jpg 540w, /images/efter-1.jpg 1080w" sizes="(max-width: 700px) 92vw, 340px" width="1080" height="1350" alt="Ren bil efter tvätt – bakifrån" loading="lazy" decoding="async"></picture>
-                <p class="gallery-caption">Efter: Skinande ren och blank. Kunden behövde inte göra någonting – jobbade medan vi tvättade.</p>
-            </div>
-            <div class="gallery-item">
-                <picture><source type="image/webp" srcset="/images/efter-2-540.webp 540w, /images/efter-2.webp 1080w" sizes="(max-width: 700px) 92vw, 340px"><img src="/images/efter-2-540.jpg" srcset="/images/efter-2-540.jpg 540w, /images/efter-2.jpg 1080w" sizes="(max-width: 700px) 92vw, 340px" width="1080" height="1350" alt="Ren bil efter tvätt – framifrån" loading="lazy" decoding="async"></picture>
-                <p class="gallery-caption">Efter: Resultatet talar för sig själv. Redo att rulla igen.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- RECENSIONER -->
-<section class="section section--gray">
-    <div class="container" style="max-width: 900px;">
-        <div class="section-title">
-            <h2>Vad Våra Kunder Säger</h2>
-        </div>
-        <div class="grid-3 fade-up">
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Vi kontaktade SimplyShine för att få tvättat våra företagsbilar. Superenkelt att boka och smidig process. De kom ut till vårt kontor och tvättade bilarna medans vi kunde fokusera på att jobba. Sen kunde vi åka iväg med skinande ren bil både utvändigt och invändigt. Starkt rekommendera!"</p>
-                <p class="review-author">– Jonatan Wennberg</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Trevlig, kunnig, snabb. Jättefint resultat. Anpassade tvätt/städ/repor inför vad jag behövde fixa inför tillbakalämning av leasingbilen. Bilen som ny! Tack!"</p>
-                <p class="review-author">– Elin Bengtsson</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Super smidigt, Edvin kom till firman och städade bilarna både inne och ute och tog dessutom hand om allt smutsvatten. Rekommenderar!"</p>
-                <p class="review-author">– Karl</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- VÅRA PAKET – ÖVERSIKT -->
-<section class="section section--white">
-    <div class="container" style="max-width: 900px;">
-        <div class="section-title">
-            <h2>Våra Paket</h2>
-            <p>Från utvändig tvätt till djupgående rekonditionering – alla utförs hemma hos dig</p>
-        </div>
-        <div class="grid-3">
-            <div class="package-card fade-up">
-                <h3>Exteriör</h3>
-                <p class="package-description">Enbart utvändig bilvård. Komplett handtvätt, fälgrengöring, däckglans och vax som skyddar lacken.</p>
-                <p style="margin-bottom: 20px; color: #6b7280; font-size: 0.95rem;"><strong>Tid:</strong> Ca 1–1,5 timmar</p>
-                <a href="/tjanster" class="btn btn--secondary btn--full">Se Vad Som Ingår</a>
-            </div>
-            <div class="package-card package-card--featured fade-up fade-up-d1">
-                <div class="package-badge">Populärast</div>
-                <h3>SimplyShine Care</h3>
-                <p class="package-description">Vår vanligaste tjänst. Handutförd rekonditionering in- och utvändigt – från lack och fälgar till dammsugning, paneler och fönster.</p>
-                <p style="margin-bottom: 20px; color: #6b7280; font-size: 0.95rem;"><strong>Tid:</strong> Ca 2–2,5 timmar</p>
-                <a href="/tjanster" class="btn btn--primary btn--full">Se Vad Som Ingår</a>
-            </div>
-            <div class="package-card fade-up fade-up-d2">
-                <h3>Full Detail</h3>
-                <p class="package-description">Djupgående rekond för det som byggts upp över tid. Asfaltsfläckar, flygrost och ingrodd smuts behandlas metodiskt. Vax som håller upp till 6 månader.</p>
-                <p style="margin-bottom: 20px; color: #6b7280; font-size: 0.95rem;"><strong>Tid:</strong> Ca 4–5 timmar</p>
-                <a href="/tjanster" class="btn btn--secondary btn--full">Se Vad Som Ingår</a>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 36px;">
-            <p style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 17px; color: #2C3E50; margin-bottom: 6px;">Priser från 1 499 kr</p>
-            <p style="color: #666; font-size: 15px; margin-bottom: 20px;">Se fullständiga priser, tilläggstjänster och medlemskap på Tjänster &amp; Priser.</p>
-            <a href="/tjanster" class="btn btn--primary">Se Priser &amp; Paket</a>
-        </div>
-
-        <div style="margin-top: 40px; text-align: center; padding: 24px; background: #F8F9FA; border-radius: 16px; border: 1px solid #E0E0E0;">
-            <p style="margin: 0 0 8px 0; font-size: 1.05rem;"><strong>Tvättar du ofta?</strong></p>
-            <p style="margin: 0 0 16px 0; color: #4b5563;">Med SimplyShine Membership får du en SimplyShine Care varje månad till lägre pris än styckpris – vi bokar in oss, du gör ingenting.</p>
-            <a href="/tjanster" class="btn btn--secondary">Läs Om Medlemskapet</a>
-        </div>
-    </div>
-</section>
-
+<!-- OMRÅDEN OCH TJÄNSTER -->
 <section class="section section--gray">
     <div class="container">
         <div class="section-title">
             <h2>Bilvård där du bor</h2>
-            <p>Vi kör i hela Göteborg med omnejd – välj ditt område eller den tjänst du är ute efter</p>
+            <p>Vi kör i hela Göteborg med omnejd – välj ditt område eller den tjänst du är ute efter.</p>
         </div>
         <div class="link-grid">
             <a class="link-card" href="/bilrekond-goteborg"><strong>Bilrekond Göteborg</strong><span>Rekond utförd hemma hos dig, från 1 499 kr.</span></a>
-            <a class="link-card" href="/biltvatt-goteborg"><strong>Biltvätt & handtvätt</strong><span>Utan borstar, utan kö, på din uppfart.</span></a>
+            <a class="link-card" href="/biltvatt-goteborg"><strong>Biltvätt och handtvätt</strong><span>Utan borstar, utan kö, på din uppfart.</span></a>
             <a class="link-card" href="/invandig-rekond-goteborg"><strong>Invändig rekond</strong><span>Kupén tillbaka till ett skick du vill sitta i.</span></a>
             <a class="link-card" href="/helrekond-goteborg"><strong>Helrekond</strong><span>Full Detail för bilen som fått vänta.</span></a>
             <a class="link-card" href="/foretagsbilvard-goteborg"><strong>Företagsbilvård</strong><span>Tjänstebilar tvättade vid kontoret, mot faktura.</span></a>
             <a class="link-card" href="/rekond-leasingbil-goteborg"><strong>Inför leasingåterlämning</strong><span>Undvik onödiga slitageavdrag.</span></a>
+            <a class="link-card" href="/rekond-forsaljning-goteborg"><strong>Inför försäljning</strong><span>En bil som ser omhändertagen ut säljer bättre.</span></a>
             <a class="link-card" href="/bilvard-molndal"><strong>Mölndal</strong><span>Mölndal, Kållered och Lindome.</span></a>
             <a class="link-card" href="/bilvard-partille"><strong>Partille</strong><span>Partille, Sävedalen och Jonsered.</span></a>
-            <a class="link-card" href="/bilvard-hisingen"><strong>Hisingen & Torslanda</strong><span>Torslanda, Björlanda, Säve och Backa.</span></a>
-            <a class="link-card" href="/bilvard-askim-hovas"><strong>Askim & Hovås</strong><span>Askim, Hovås, Billdal och Näset.</span></a>
+            <a class="link-card" href="/bilvard-hisingen"><strong>Hisingen och Torslanda</strong><span>Torslanda, Björlanda, Säve och Backa.</span></a>
+            <a class="link-card" href="/bilvard-askim-hovas"><strong>Askim och Hovås</strong><span>Askim, Hovås, Billdal och Näset.</span></a>
             <a class="link-card" href="/bilvard-kungsbacka"><strong>Kungsbacka</strong><span>Kungsbacka, Onsala och Kullavik.</span></a>
-            <a class="link-card" href="/bilvard-lerum"><strong>Lerum & Härryda</strong><span>Lerum, Mölnlycke och Landvetter.</span></a>
+            <a class="link-card" href="/bilvard-lerum"><strong>Lerum och Härryda</strong><span>Lerum, Mölnlycke och Landvetter.</span></a>
             <a class="link-card" href="/bilvard-kungalv"><strong>Kungälv</strong><span>Kungälv, Ytterby och Kode.</span></a>
             <a class="link-card" href="/guider"><strong>Guider</strong><span>Vad rekond kostar och hur ofta bilen behöver det.</span></a>
         </div>
     </div>
 </section>
 
-<!-- CTA BANNER -->
+<!-- AVSLUTANDE CTA -->
 <section class="cta-banner">
-    <div class="fade-up">
-        <h2>Redo Att Boka?</h2>
-        <p>Välj datum och tid direkt i kalendern – bekräftelse via e-post.</p>
-        <a href="/boka" class="btn btn--white btn--lg">Välj Din Tid</a>
-    </div>
+    <h2>Redo att boka?</h2>
+    <p>Välj paket, dag och tid direkt i kalendern – du får en bekräftelse via e-post.</p>
+    <a href="/boka" class="btn btn--primary btn--lg">Boka tid</a>
+    <p class="cta-meta">Frågor först? Ring <a href="tel:+46730604303">073-060 43 03</a>.</p>
 </section>
 
 </main>
@@ -542,6 +569,7 @@
             <a href="/biltvatt-goteborg">Biltvätt & handtvätt</a>
             <a href="/foretagsbilvard-goteborg">Företagsbilvård</a>
             <a href="/rekond-leasingbil-goteborg">Rekond inför leasingåterlämning</a>
+            <a href="/rekond-forsaljning-goteborg">Rekond inför försäljning</a>
         </div>
         <div class="footer-links">
             <h4>Omr&aring;den</h4>
@@ -560,7 +588,6 @@
             <a href="/sa-funkar-det">S&aring; funkar det</a>
             <a href="/tjanster">Priser</a>
             <a href="/guider">Guider</a>
-            <a class="preferred-source-link" href="https://www.google.com/preferences/source?q=simplyshine.se">Välj SimplyShine som önskad källa på Google</a>
             <a href="/kontakt">Kontakt</a>
             <a href="https://punkteringsjour.se/">Punktering? Punkteringsjour – dygnet runt</a>
         </div>

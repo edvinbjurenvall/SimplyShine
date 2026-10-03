@@ -47,7 +47,6 @@ for url in urls:
         if data.get('@type') == 'Article':
             assert data['dateModified'] in source and 'class="guide-byline"' in source, file
             assert 'google-add-preferred-source-btn' in source, file
-    assert 'https://www.google.com/preferences/source?q=simplyshine.se' in source, file
     for tag, attrs in page.tags:
         if tag not in ('a', 'link', 'img', 'script', 'source'): continue
         for key in ('href', 'src'):

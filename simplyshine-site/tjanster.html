@@ -12,7 +12,7 @@
     <meta name="description" content="Fasta priser på mobil bilvård i Göteborg: Exteriör 1 499 kr, SimplyShine Care 2 499 kr och Full Detail 4 499 kr. Se exakt vad som ingår i varje rekondpaket.">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
     <link rel="canonical" href="https://simplyshine.se/tjanster">
-    <meta name="theme-color" content="#2C3E50">
+    <meta name="theme-color" content="#0F1E33">
     <meta name="geo.region" content="SE-O">
     <meta name="geo.placename" content="Göteborg">
 
@@ -32,7 +32,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Montserrat:wght@600;800&amp;display=swap">
     <link rel="stylesheet" href="/style.css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18409628541"></script>
@@ -95,15 +95,6 @@
     "@type": "GeoCoordinates",
     "latitude": 57.7089,
     "longitude": 11.9746
-  },
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 57.7089,
-      "longitude": 11.9746
-    },
-    "geoRadius": "35000"
   },
   "areaServed": [
     {
@@ -239,12 +230,14 @@
     ]
   },
   "sameAs": [
+    "https://maps.google.com/?cid=1169395813539161227",
     "https://www.instagram.com/simplyshine_sverige/",
     "https://www.facebook.com/61587424060188",
     "https://www.tiktok.com/@simplyshine8",
     "https://www.youtube.com/@SimplyShine.s"
   ],
-  "logo": "https://simplyshine.se/images/favicon-512.png"
+  "logo": "https://simplyshine.se/images/favicon-512.png",
+  "hasMap": "https://maps.google.com/?cid=1169395813539161227"
 }
 </script>
 </head>
@@ -256,10 +249,10 @@
     </a>
     <nav class="nav" aria-label="Huvudnavigation">
         <a href="/" class="nav-link">Hem</a>
-        <a href="/tjanster" class="nav-link active">Tjänster</a>
-        <a href="/sa-funkar-det" class="nav-link">Så Funkar Det</a>
-        <a href="/om-oss" class="nav-link">Om Oss</a>
-        <a href="/boka" class="nav-link nav-link--cta">Boka</a>
+        <a href="/tjanster" class="nav-link active" aria-current="page">Tjänster</a>
+        <a href="/sa-funkar-det" class="nav-link">Så funkar det</a>
+        <a href="/om-oss" class="nav-link">Om oss</a>
+        <a href="/boka" class="nav-link nav-link--cta">Boka tid</a>
         <a href="/kontakt" class="nav-link">Kontakt</a>
     </nav>
     <button class="hamburger" aria-label="Öppna meny"><span></span><span></span><span></span></button>
@@ -267,10 +260,10 @@
 
 <div class="mobile-menu" aria-label="Mobilnavigation">
     <a href="/">Hem</a>
-    <a href="/tjanster" class="active">Tjänster</a>
-    <a href="/sa-funkar-det">Så Funkar Det</a>
-    <a href="/om-oss">Om Oss</a>
-    <a href="/boka">Boka</a>
+    <a href="/tjanster" class="active" aria-current="page">Tjänster</a>
+    <a href="/sa-funkar-det">Så funkar det</a>
+    <a href="/om-oss">Om oss</a>
+    <a href="/boka">Boka tid</a>
     <a href="/kontakt">Kontakt</a>
 </div>
 <main>
@@ -278,8 +271,11 @@
 <!-- HERO -->
 <section class="hero hero--small">
     <div class="hero-content">
-        <h1>Våra Tjänster &amp; Priser</h1>
-        <p>Transparent prissättning. Professionell kvalitet.</p>
+        <h1>Priser på bilvård och rekond</h1>
+        <p>Fasta priser och ingen avgift för framkörning inom Göteborgsområdet. Du betalar med Swish när jobbet är klart.</p>
+        <div class="hero-buttons">
+            <a href="/boka" class="btn btn--primary btn--lg">Boka tid</a>
+        </div>
     </div>
 </section>
 <nav class="breadcrumbs" aria-label="Brödsmulor"><div class="container"><a href="/">Hem</a> <span class="breadcrumb-sep">›</span> <span aria-current="page">Tjänster & priser</span></div></nav>
@@ -288,17 +284,44 @@
 <section class="section section--white">
     <div class="container--narrow">
 
+    <!-- Paket: Exteriör -->
+    <div class="package-detail" id="exterior">
+        <h2>Exteriör</h2>
+        <p class="package-subtitle"><strong>Utvändig rekond – enbart utvändig bilvård, utförd hos dig</strong></p>
+        <p class="package-description">En komplett utvändig rekonditionering för dig som vill ha en skinande ren och skyddad bil på utsidan. Vi kommer till dig och tar hand om hela exteriören.</p>
+        <div class="package-price">
+            1 499 kr
+        </div>
+        <h3>Passar dig som</h3>
+        <p>Vill ha en ren, blank och skyddad bil på utsidan – snabbt och smidigt.</p>
+        <h3>Det här ingår</h3>
+        <div>
+            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Komplett utvändig tvätt</span></div>
+            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Fälgrengöring</span></div>
+            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Däckglans</span></div>
+            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Vax (hållbarhet upp till 1 månad)</span></div>
+            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Dörrkarmar rengörs</span></div>
+            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Fönster putsas utvändigt</span></div>
+        </div>
+        <h3>Tid</h3>
+        <p>Ca 1–1,5 timmar</p>
+
+        <a href="/boka?paket=exterior" class="btn btn--primary">Boka Exteriör</a>
+    </div>
+
+    <hr class="divider">
+
     <!-- Paket 1: SimplyShine Care -->
-    <div class="package-detail fade-up">
+    <div class="package-detail" id="care">
         <h2>SimplyShine Care</h2>
         <p class="package-subtitle"><strong>Professionell bilvård — utförd hos dig</strong></p>
         <p class="package-description">En handutförd rekonditionering utförd hos dig. Vi kommer till dig, tar hand om varje detalj och lämnar bilen i ett skick som en automatisk tvätt aldrig kan matcha. </p>
         <div class="package-price">
             2 499 kr
         </div>
-        <h3>Perfekt för:</h3>
-        <p>Den som värdesätter sin tid och vill hålla bilen i konstant toppskick.</p>
-        <h3>Vad som ingår:</h3>
+        <h3>Passar dig som</h3>
+        <p>Värdesätter din tid och vill hålla bilen i toppskick hela tiden.</p>
+        <h3>Det här ingår</h3>
         <div style="margin-bottom: 24px;">
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Komplett utvändig tvätt</span></div>
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Däckglans</span></div>
@@ -309,12 +332,12 @@
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Golvmattor rengörs</span></div>
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Paneler och vinyl avtorkas</span></div>
         </div>
-        <h3>Tid:</h3>
+        <h3>Tid</h3>
         <p>Ca 2–2,5 timmar</p>
 
         <!-- TILLÄGGSTJÄNSTER -->
         <div class="addons-section">
-            <h3>Tilläggstjänster:</h3>
+            <h3>Tillägg</h3>
             <div class="addons-grid">
                 <div class="addon-chip" data-addon="satestengoring">
                     <div class="addon-chip-top">
@@ -402,49 +425,22 @@
             </div>
         </div>
 
-        <a href="/boka" class="btn btn--primary">Boka Detta</a>
-    </div>
-
-    <hr class="divider">
-
-    <!-- Paket: Exteriör -->
-    <div class="package-detail fade-up">
-        <h2>Exteriör</h2>
-        <p class="package-subtitle"><strong>Enbart utvändig bilvård — utförd hos dig</strong></p>
-        <p class="package-description">En komplett utvändig rekonditionering för dig som vill ha en skinande ren och skyddad bil på utsidan. Vi kommer till dig och tar hand om hela exteriören.</p>
-        <div class="package-price">
-            1 499 kr
-        </div>
-        <h3>Perfekt för:</h3>
-        <p>Den som vill ha en ren, blank och skyddad bil på utsidan — snabbt och smidigt.</p>
-        <h3>Vad som ingår:</h3>
-        <div>
-            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Komplett utvändig tvätt</span></div>
-            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Fälgrengöring</span></div>
-            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Däckglans</span></div>
-            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Vax (hållbarhet upp till 1 månad)</span></div>
-            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Dörrkarmar rengörs</span></div>
-            <div class="checklist-item"><span class="checklist-icon">✓</span><span>Fönster putsas utvändigt</span></div>
-        </div>
-        <h3>Tid:</h3>
-        <p>Ca 1–1,5 timmar</p>
-
-        <a href="/boka" class="btn btn--primary">Boka Detta</a>
+        <a href="/boka?paket=care" class="btn btn--primary">Boka Care</a>
     </div>
 
     <hr class="divider">
 
     <!-- Paket 2: SimplyShine Full Detail -->
-    <div class="package-detail fade-up">
+    <div class="package-detail" id="full-detail">
         <h2>SimplyShine Full Detail</h2>
         <p class="package-subtitle"><strong>Djupgående rekonditionering — för bilen som förtjänar mer</strong></p>
         <p class="package-description">Vissa saker syns inte vid första anblick — men vi ser dem. Rekond går djupare än en vanlig bilvård och tar hand om det som byggts upp över tid. Asfaltsfläckar, flygrost och inbyggt smuts behandlas metodiskt tills resultatet talar för sig självt.</p>
         <div class="package-price">
             4 499 kr
         </div>
-        <h3>Perfekt för:</h3>
-        <p>Den som vill ge bilen en riktig fräschstart — eller som helt enkelt inte accepterar halvdana resultat.</p>
-        <h3>Vad som ingår:</h3>
+        <h3>Passar dig som</h3>
+        <p>Vill ge bilen en riktig nystart – eller inte nöjer dig med halvdana resultat.</p>
+        <h3>Det här ingår</h3>
         <div style="margin-bottom: 24px;">
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Komplett utvändig tvätt</span></div>
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Dörrkarmar rengörs</span></div>
@@ -459,12 +455,12 @@
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Pedalställ rengörs</span></div>
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Ventilationsgaller &amp; skarvar rengörs</span></div>
         </div>
-        <h3>Tid:</h3>
+        <h3>Tid</h3>
         <p>Ca 4–5 timmar</p>
 
         <!-- TILLÄGGSTJÄNSTER -->
         <div class="addons-section">
-            <h3>Tilläggstjänster:</h3>
+            <h3>Tillägg</h3>
             <div class="addons-grid">
                 <div class="addon-chip" data-addon="satestengoring">
                     <div class="addon-chip-top">
@@ -541,25 +537,26 @@
             </div>
         </div>
 
-        <a href="/boka" class="btn btn--primary">Boka Detta</a>
+        <a href="/boka?paket=full-detail" class="btn btn--primary">Boka Full Detail</a>
     </div>
 
     <hr class="divider">
 
     <!-- Paket 3: SimplyShine Membership -->
-    <div class="package-detail package-detail--membership fade-up" style="background: linear-gradient(135deg, #f8f9fa 0%, #eef1f5 100%); border: 2px solid #d4af37; border-radius: 16px; padding: 40px; position: relative;">
-        <div class="badge-popular" style="background: #d4af37;">MEDLEMSKAP</div>
+    <div class="package-detail package-detail--membership" id="membership">
+        <div class="badge-popular">Medlemskap</div>
         <h2>SimplyShine Membership</h2>
         <p class="package-subtitle"><strong>Alltid en skinande ren bil</strong></p>
         <p class="package-description">Sluta tänka på biltvätten. Som medlem får du SimplyShine Care utförd en gång i månaden — vi bokar in oss, du gör ingenting. Perfekt för dig som vill ha en bil i toppskick utan att det ska ta tid från din dag.</p>
         <div class="package-price">1 999 kr/mån</div>
-        <h3>Vad som ingår:</h3>
+        <p>500 kr mindre per månad än att boka SimplyShine Care styckvis.</p>
+        <h3>Det här ingår</h3>
         <div style="margin-bottom: 24px;">
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>1x SimplyShine Care per månad</span></div>
             <div class="checklist-item"><span class="checklist-icon">✓</span><span>Prioriterad bokning</span></div>
         </div>
-        <p style="margin-bottom: 24px;"><em>Medlemskapet startas via en kontaktförfrågan — vi hör av oss och hjälper dig igång. </em></p>
-        <a href="/kontakt" class="btn btn--primary">Skicka Kontaktförfrågan</a>
+        <p>Du startar medlemskapet med en kort förfrågan – vi hör av oss och bokar in första tiden.</p>
+        <a href="/kontakt?amne=Medlemskap" class="btn btn--accent">Starta medlemskap</a>
     </div>
 
     </div>
@@ -567,10 +564,10 @@
 
 <!-- FÖRETAGSKUNDER -->
 <section class="section section--gray">
-    <div class="container business-cta fade-up">
+    <div class="container business-cta">
         <h2>Företagskunder?</h2>
         <p>Vi erbjuder löpande avtal och fleettjänster. Kontakta oss för offert.</p>
-        <a href="/kontakt" class="btn btn--primary">Kontakta Oss</a>
+        <a href="/kontakt" class="btn btn--primary">Kontakta oss</a>
     </div>
 </section>
 
@@ -603,6 +600,7 @@
             <a href="/biltvatt-goteborg">Biltvätt & handtvätt</a>
             <a href="/foretagsbilvard-goteborg">Företagsbilvård</a>
             <a href="/rekond-leasingbil-goteborg">Rekond inför leasingåterlämning</a>
+            <a href="/rekond-forsaljning-goteborg">Rekond inför försäljning</a>
         </div>
         <div class="footer-links">
             <h4>Omr&aring;den</h4>
@@ -621,7 +619,6 @@
             <a href="/sa-funkar-det">S&aring; funkar det</a>
             <a href="/tjanster">Priser</a>
             <a href="/guider">Guider</a>
-            <a class="preferred-source-link" href="https://www.google.com/preferences/source?q=simplyshine.se">Välj SimplyShine som önskad källa på Google</a>
             <a href="/kontakt">Kontakt</a>
             <a href="https://punkteringsjour.se/">Punktering? Punkteringsjour – dygnet runt</a>
         </div>

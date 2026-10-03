@@ -2,14 +2,60 @@
    SimplyShine – Shared JavaScript
    ═══════════════════════════════════════════ */
 
+/* ─── Google Analytics 4 ───
+   Klistra in mät-ID:t (G-XXXXXXX) från Google Analytics här.
+   Sidorna laddar redan gtag via Google Ads-taggen, så ingen annan
+   kod behöver ändras. Händelserna nedan skickas när ID:t finns. */
+const GA4_ID = '';
+
+if (GA4_ID && typeof window.gtag === 'function') {
+  window.gtag('config', GA4_ID);
+}
+
+function track(eventName, params) {
+  if (typeof window.gtag !== 'function') return;
+  window.gtag('event', eventName, Object.assign({ page_path: location.pathname }, params || {}));
+}
+window.ssTrack = track;
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initMobileMenu();
   initFaqAccordion();
-  initScrollAnimations();
   initForms();
   initAddonTooltips();
+  initMobileCta();
+  initClickTracking();
 });
+
+/* ─── Fast bokningsrad i mobilen ─── */
+function initMobileCta() {
+  const path = location.pathname.replace(/\.html$/, '');
+  if (path === '/boka' || path === '/admin' || document.body.dataset.noMobileCta !== undefined) return;
+  const bar = document.createElement('div');
+  bar.className = 'mobile-cta';
+  bar.innerHTML =
+    '<a class="btn btn--accent" href="/boka">Boka tid</a>' +
+    '<a class="mobile-cta-call" href="tel:+46730604303" aria-label="Ring 073-060 43 03">' +
+    '<svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.5 4.5-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4.5 1.5V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>' +
+    '</a>';
+  document.body.appendChild(bar);
+  document.body.classList.add('has-mobile-cta');
+}
+
+/* ─── Klickhändelser: bokningsknappar och telefonnummer ─── */
+function initClickTracking() {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('tel:')) {
+      track('click_phone', { link_text: link.textContent.trim() || 'telefonikon' });
+    } else if (/^\/boka(\b|\?|$)/.test(href) || /simplyshine\.se\/boka/.test(href)) {
+      track('click_boka', { link_text: link.textContent.trim(), link_url: href });
+    }
+  });
+}
 
 /* ─── Header scroll effect ─── */
 function initHeader() {
@@ -65,26 +111,6 @@ function initFaqAccordion() {
       btn.setAttribute('aria-expanded', String(!wasOpen));
     });
     item.classList.add('faq-ready');
-  });
-}
-
-/* Content is visible first; animate only off-screen elements after setup. */
-function initScrollAnimations() {
-  if (!('IntersectionObserver' in window) ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('is-pending');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0 });
-  document.querySelectorAll('.fade-up').forEach(el => {
-    if (el.getBoundingClientRect().top >= window.innerHeight) {
-      observer.observe(el);
-      el.classList.add('is-pending');
-    }
   });
 }
 

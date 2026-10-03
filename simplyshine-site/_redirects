@@ -16,6 +16,7 @@
 /biltvatt-goteborg                 /biltvatt-goteborg.html               200
 /foretagsbilvard-goteborg          /foretagsbilvard-goteborg.html        200
 /rekond-leasingbil-goteborg        /rekond-leasingbil-goteborg.html      200
+/rekond-forsaljning-goteborg       /rekond-forsaljning-goteborg.html     200
 /bilvard-molndal                   /bilvard-molndal.html                 200
 /bilvard-partille                  /bilvard-partille.html                200
 /bilvard-hisingen                  /bilvard-hisingen.html                200
@@ -31,3 +32,32 @@
 # Gamla sokvagar
 /rekond    /bilrekond-goteborg   301
 /priser    /tjanster             301
+
+# .html-adresser till rena adresser (en adress per sida för Google)
+/saro-boka.html                        /saro-boka                         301!
+/hovas-boka.html                       /hovas-boka                        301!
+/hovas.html                            /hovas                             301!
+/saro.html                             /saro                              301!
+/tjanster.html                         /tjanster                          301!
+/sa-funkar-det.html                    /sa-funkar-det                     301!
+/om-oss.html                           /om-oss                            301!
+/boka.html                             /boka                              301!
+/kontakt.html                          /kontakt                           301!
+/bilrekond-goteborg.html               /bilrekond-goteborg                301!
+/invandig-rekond-goteborg.html         /invandig-rekond-goteborg          301!
+/helrekond-goteborg.html               /helrekond-goteborg                301!
+/biltvatt-goteborg.html                /biltvatt-goteborg                 301!
+/foretagsbilvard-goteborg.html         /foretagsbilvard-goteborg          301!
+/rekond-leasingbil-goteborg.html       /rekond-leasingbil-goteborg        301!
+/rekond-forsaljning-goteborg.html      /rekond-forsaljning-goteborg       301!
+/bilvard-molndal.html                  /bilvard-molndal                   301!
+/bilvard-partille.html                 /bilvard-partille                  301!
+/bilvard-hisingen.html                 /bilvard-hisingen                  301!
+/bilvard-askim-hovas.html              /bilvard-askim-hovas               301!
+/bilvard-kungsbacka.html               /bilvard-kungsbacka                301!
+/bilvard-lerum.html                    /bilvard-lerum                     301!
+/bilvard-kungalv.html                  /bilvard-kungalv                   301!
+/guider.html                           /guider                            301!
+/guider-vad-kostar-rekond.html         /guider/vad-kostar-rekond          301!
+/guider-rekond-eller-biltvatt.html     /guider/rekond-eller-biltvatt      301!
+/guider-hur-ofta-rekond.html           /guider/hur-ofta-rekond            301!
