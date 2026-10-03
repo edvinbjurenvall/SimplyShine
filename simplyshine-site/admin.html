@@ -10,7 +10,7 @@
     <link rel="manifest" href="/site.webmanifest">
           <title>Admin – Hantera Bokningar | SimplyShine</title>
         <meta name="robots" content="noindex, nofollow">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Montserrat:wght@600;800&amp;display=swap">
     <link rel="stylesheet" href="style.css">
         <style>
                 .admin-status { padding: 12px 16px; border-radius: 8px; margin: 16px 0; display: none; font-weight: 600; }
@@ -29,27 +29,27 @@
 
       <header class="header">
             <a href="index.html" class="logo" aria-label="SimplyShine startsida">
-                    <span class="logo-simply">Simply</span>span><span class="logo-shine">Shine</span>span>
-            </a>a>
+                    <span class="logo-simply">Simply</span><span class="logo-shine">Shine</span>
+            </a>
             <nav class="nav">
-                    <a href="boka.html" class="nav-link">Boka-sidan</a>a>
-                    <a href="admin.html" class="nav-link nav-link--cta active">Admin</a>a>
-            </nav>nav>
-      </header>header>
+                    <a href="boka.html" class="nav-link">Boka-sidan</a>
+                    <a href="admin.html" class="nav-link nav-link--cta active">Admin</a>
+            </nav>
+      </header>
 
     <div class="admin-container">
         <div class="admin-header">
               <h1>Hantera Bokningar</h1>
             <p>Klicka på en dag i kalendern, blockera/öppna tider, och tryck "Spara & Publicera".</p>
-        </div>div>
+        </div>
     
       <div class="admin-token-section">
           <p><strong>GitHub-token</strong> (behövs för att spara direkt till sajten)</p>
           <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxx">
           <p style="margin-top: 6px; font-size: 12px; color: #888;">Din token sparas bara lokalt i din webbläsare.</p>
-      </div>div>
+      </div>
     
-      <div id="admin-status" class="admin-status"></div>div>
+      <div id="admin-status" class="admin-status"></div>
     
       <div class="admin-info">
           <strong>Så här fungerar det:</strong><br>
@@ -57,34 +57,34 @@
           2. Välj ett datum i kalendern nedan.<br>
           3. Klicka på "Ledig" för att blockera en tid, eller "Blockerad" för att öppna den igen.<br>
           4. Tryck <strong>"Spara & Publicera"</strong> – ändringarna går live automatiskt!
-      </div>div>
+      </div>
     
       <div class="admin-calendar">
           <div class="cal-header">
-                <button type="button" class="cal-nav" id="admin-cal-prev">&larr;</button>button>
-                <span class="cal-month" id="admin-cal-month-label"></span>span>
-                <button type="button" class="cal-nav" id="admin-cal-next">&rarr;</button>button>
-          </div>div>
+                <button type="button" class="cal-nav" id="admin-cal-prev">&larr;</button>
+                <span class="cal-month" id="admin-cal-month-label"></span>
+                <button type="button" class="cal-nav" id="admin-cal-next">&rarr;</button>
+          </div>
           <div class="cal-weekdays">
                 <span>Mån</span><span>Tis</span><span>Ons</span><span>Tor</span><span>Fre</span><span>Lör</span><span>Sön</span>
-          </div>div>
-          <div class="cal-days" id="admin-cal-days"></div>div>
+          </div>
+          <div class="cal-days" id="admin-cal-days"></div>
           <div id="admin-slots" class="admin-slots" style="display:none;">
                 <p class="admin-date-label" id="admin-date-label"></p>
-                <div id="admin-slot-list"></div>div>
-          </div>div>
-      </div>div>
+                <div id="admin-slot-list"></div>
+          </div>
+      </div>
     
-      <button type="button" class="admin-save-btn" id="save-publish-btn">Spara & Publicera</button>button>
+      <button type="button" class="admin-save-btn" id="save-publish-btn">Spara & Publicera</button>
     
       <div class="admin-export-section">
           <h3>Aktuell JSON (för referens)</h3>
           <textarea id="admin-json-output" class="admin-json-output" readonly></textarea>
           <div class="admin-btn-row">
-                <button type="button" class="btn btn--secondary" id="clear-all-btn">Rensa alla blockeringar</button>button>
-          </div>div>
-      </div>div>
-    </div>div>
+                <button type="button" class="btn btn--secondary" id="clear-all-btn">Rensa alla blockeringar</button>
+          </div>
+      </div>
+    </div>
   
   <script>
     (function() {
@@ -384,7 +384,7 @@
     })();
   </script>
   </body>
-</html>html>
+</html>
   </script></span></span></strong></strong></p></p></h1>
   </body>
         </style></title>
