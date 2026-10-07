@@ -509,10 +509,11 @@ h1, h2, h3, h4 {
 
 .package-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
   align-items: stretch;
 }
+.package-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 820px; }
 
 .package-card {
   position: relative;
@@ -521,7 +522,7 @@ h1, h2, h3, h4 {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 32px 28px 28px;
+  padding: 30px 24px 26px;
 }
 .package-card--featured { border: 2px solid var(--ink); }
 
@@ -1169,7 +1170,7 @@ h1, h2, h3, h4 {
 .booking-step-head p { color: var(--muted); font-size: 0.97rem; margin-top: 4px; }
 
 /* Paketval som kort */
-.package-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.package-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; }
 .package-option { position: relative; display: block; cursor: pointer; }
 .package-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .package-option-body {
@@ -1663,13 +1664,22 @@ h1, h2, h3, h4 {
    Responsivt
    ═══════════════════════════════════════════ */
 
+@media (min-width: 1181px) {
+  /* Fyra kort i rad: samma titelhöjd så att priserna linjerar */
+  .package-grid:not(.package-grid--two) .package-card h3 { min-height: 2.4em; }
+}
+
+@media (max-width: 1180px) {
+  .package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 26px; }
+}
+
 @media (max-width: 1080px) {
   .nav-link { padding: 10px 10px; font-size: 14px; }
   .booking-layout { grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; }
 }
 
 @media (max-width: 960px) {
-  .package-grid { grid-template-columns: 1fr; max-width: 560px; }
+  .package-grid, .package-grid--two { grid-template-columns: 1fr; max-width: 560px; }
   .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .step:nth-child(3) { border-left: none; padding-left: 0; }
   .trust-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
