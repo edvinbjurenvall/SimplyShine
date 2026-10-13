@@ -74,7 +74,7 @@
         '<p>Om du godkänner använder vi Google Ads och Metricool för att se hur många som hittar hit och bokar via våra annonser. Inget av det startar förrän du har valt, och du kan boka lika enkelt utan att godkänna.</p>' +
         '<details><summary>Mer om ditt val</summary>' +
           '<p>Google och Metricool sätter cookies i din webbläsare och tar emot uppgifter om besöket, till exempel vilka sidor du tittar på och om du gör en bokning. Google kan koppla det till ditt Google-konto för annonsmätning. Vi skickar aldrig ditt namn, telefonnummer, adress eller registreringsnummer. Ditt val sparas i högst sex månader och du kan ändra det när som helst via Cookieinställningar längst ned på sidan. ' +
-          '<a href="https://policies.google.com/technologies/partner-sites?hl=sv" target="_blank" rel="noopener noreferrer">Så använder Google uppgifterna</a>.</p>' +
+          'Läs mer i vår <a href="/integritetspolicy#cookies">integritets- och cookiepolicy</a>.</p>' +
         '</details>' +
       '</div>' +
       '<div class="consent-actions">' +
@@ -104,6 +104,14 @@
       returnFocus = settings;
       panel.hidden = false;
       panel.querySelector('button').focus();
+    });
+
+    document.querySelectorAll('.consent-open').forEach(function (button) {
+      button.addEventListener('click', function () {
+        returnFocus = button;
+        panel.hidden = false;
+        panel.querySelector('button').focus();
+      });
     });
 
     panel.querySelectorAll('[data-consent]').forEach(function (button) {
