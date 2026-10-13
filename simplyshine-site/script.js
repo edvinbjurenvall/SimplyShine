@@ -4,8 +4,8 @@
 
 /* ─── Google Analytics 4 ───
    Klistra in mät-ID:t (G-XXXXXXX) från Google Analytics här.
-   Sidorna laddar redan gtag via Google Ads-taggen, så ingen annan
-   kod behöver ändras. Händelserna nedan skickas när ID:t finns. */
+   Google-taggen laddas av consent.js först när besökaren godkänt
+   cookies, så GA4 omfattas automatiskt av samma samtycke. */
 const GA4_ID = '';
 
 if (GA4_ID && typeof window.gtag === 'function') {

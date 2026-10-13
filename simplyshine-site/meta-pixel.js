@@ -46,12 +46,22 @@ function createCampaignPixel(env) {
       doc.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax${domain ? '; domain=' + domain : ''}`;
     }
   }
+  let metricoolLoaded = false;
+  function loadMetricool() {
+    // Metricool laddas bara efter godkännande (inte i testläge).
+    if (metricoolLoaded || preview) return;
+    const script = doc.createElement('script'); script.async = true;
+    script.src = 'https://tracker.metricool.com/resources/be.js';
+    script.onload = () => { if (win.beTracker) win.beTracker.t({ hash: 'f26e0ccd1158ecbdc38f9f561d5c568a' }); };
+    doc.head.append(script); metricoolLoaded = true;
+  }
   function setConsent(choice, persist = true) {
     granted = choice === 'yes';
     if (persist) try { storage.setItem(key, JSON.stringify({ choice: granted ? 'yes' : 'no', expires: now() + 180 * 86400000 })); } catch {}
     if (granted) {
       if (initialized && !preview) win.fbq('consent','grant');
       track('PageView');
+      loadMetricool();
     } else {
       if (initialized && !preview) win.fbq('consent','revoke');
       clearCookies();
@@ -69,7 +79,7 @@ if (typeof window !== 'undefined') {
     window.SimplyShinePixel = tracker;
     const panel = document.createElement('section');
     panel.className = 'cookie-choice'; panel.setAttribute('aria-label','Val för marknadsföringscookies');
-    panel.innerHTML = '<div><strong>Får vi mäta hur våra annonser fungerar?</strong><p>Om du godkänner använder vi Meta-pixeln och delar sidbesök och formulärhändelser med Meta för annonsmätning och anpassad annonsering. Du kan boka lika enkelt utan att godkänna.</p><details><summary>Mer om ditt val</summary><p>Meta kan koppla besöket till din enhet eller ditt konto. Vi skickar inte formulärets namn, telefonnummer eller mejladress till pixeln. Ditt val sparas i högst sex månader. Ändra när som helst via Cookieinställningar längst ned. <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Metas integritetspolicy</a>.</p></details></div><div class="cookie-actions"><button type="button" data-cookie="no">Avvisa</button><button type="button" data-cookie="yes">Godkänn</button></div>';
+    panel.innerHTML = '<div><strong>Får vi mäta hur våra annonser fungerar?</strong><p>Om du godkänner använder vi Meta-pixeln och Metricool och delar sidbesök och formulärhändelser med Meta för annonsmätning och anpassad annonsering. Du kan boka lika enkelt utan att godkänna.</p><details><summary>Mer om ditt val</summary><p>Meta kan koppla besöket till din enhet eller ditt konto, och Metricool mäter besöken för vår statistik. Inget av det startar förrän du har valt. Vi skickar inte formulärets namn, telefonnummer eller mejladress till pixeln. Ditt val sparas i högst sex månader. Ändra när som helst via Cookieinställningar längst ned. <a href="/integritetspolicy#cookies">Vår integritets- och cookiepolicy</a> · <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Metas integritetspolicy</a>.</p></details></div><div class="cookie-actions"><button type="button" data-cookie="no">Avvisa</button><button type="button" data-cookie="yes">Godkänn</button></div>';
     document.body.append(panel);
     const footer = document.querySelector('footer') || document.body;
     const settings = document.createElement('button'); settings.type='button'; settings.className='cookie-settings'; settings.textContent='Cookieinställningar'; footer.append(settings);
